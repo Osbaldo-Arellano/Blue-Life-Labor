@@ -309,4 +309,23 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
   </body>
+  <script>
+    // Extract the query parameter from the URL
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service"); // Get the service from the URL
+
+    // If a service is specified, update the "Contacts" section
+    if (service) {
+      // Select the row element containing the "Contacts" text
+      const contactsSection = document.querySelector(".row.mb-5");
+
+      // Update the content dynamically
+      contactsSection.innerHTML = `
+        <div class="col-md-8 col-xl-6 text-center mx-auto">
+          <p class="fw-bold text-success mb-2">Get more information on</p>
+          <h2 class="fw-bold">${service}</h2>
+        </div>
+      `;
+    }
+  </script>
 </html>
