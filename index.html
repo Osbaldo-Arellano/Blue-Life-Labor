@@ -14,6 +14,18 @@
     />
 
     <style>
+      .contact-info {
+        text-align: left; /* Ensure text alignment for all children */
+      }
+    
+      .contact-info h6,
+      .contact-info p {
+        margin: 0; /* Remove default margins for consistency */
+      }
+    </style>
+    
+
+    <style>
       /* Set a consistent height for the carousel and use object-fit */
       #imageCarousel img {
         height: 500px; /* Adjust the height as needed */
@@ -561,12 +573,8 @@
               </form>
             </div>
           </div>
-          <div
-            class="col-md-4 col-xl-4 d-flex justify-content-center justify-content-xl-start"
-          >
-            <div
-              class="d-flex flex-wrap flex-md-column justify-content-md-start align-items-md-start h-100"
-            >
+          <div class="col-md-4 col-xl-4 d-flex justify-content-center justify-content-xl-start">
+            <div class="d-flex flex-wrap flex-md-column justify-content-md-start align-items-md-start h-100">
               <div class="d-flex align-items-center p-3">
                 <div
                   class="bs-icon-md bs-icon-circle bs-icon-primary shadow d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon bs-icon-md"
@@ -584,9 +592,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="px-2">
+                <div class="px-2 contact-info">
                   <h6 class="fw-bold mb-0">Phone</h6>
-                  <p class="text-muted mb-0">(971) 983-7145</p>
+                  <p class="text-muted mb-0">(971) 983-7154</p>
                 </div>
               </div>
               <div class="d-flex align-items-center p-3">
@@ -606,7 +614,7 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="px-2">
+                <div class="px-2 contact-info">
                   <h6 class="fw-bold mb-0">Email</h6>
                   <p class="text-muted mb-0">bluelifelabor@gmail.com</p>
                 </div>
@@ -615,28 +623,28 @@
                 <div
                   class="bs-icon-md bs-icon-circle bs-icon-primary shadow d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon bs-icon-md"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    class="bi bi-pin"
-                  >
-                    <path
-                      d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354zm1.58 1.408h.718c.779 0 1.002.008 1.846.046.783.035 1.208.168 1.491.278.373.145.64.319.92.599.28.28.453.546.598.92.109.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.478 2.478 0 0 1-.598.92 2.475 2.475 0 0 1-.92.598c-.283.11-.708.24-1.491.278-.844.038-1.067.046-1.846.046h-.718c-.779 0-1.002-.008-1.846-.046-.783-.036-1.208-.168-1.491-.278a2.475 2.475 0 0 1-.92-.598 2.478 2.478 0 0 1-.598-.92c-.109-.281-.24-.705-.275-1.485C1.01 10.39 1 10.137 1 8s.008-2.388.047-3.231c.035-.78.166-1.204.275-1.486.145-.373.319-.64.598-.92a2.475 2.475 0 0 1 .92-.598c.283-.11.708-.243 1.491-.278.844-.038 1.067-.046 1.846-.046zm4.174 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92z"
-                    ></path>
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+                class="bi bi-pin"
+              >
+                <path
+                  d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354zm1.58 1.408-.002-.001.002.001m-.002-.001.002.001A.5.5 0 0 1 6 2v5a.5.5 0 0 1-.276.447h-.002l-.012.007-.054.03a4.922 4.922 0 0 0-.827.58c-.318.278-.585.596-.725.936h7.792c-.14-.34-.407-.658-.725-.936a4.915 4.915 0 0 0-.881-.61l-.012-.006h-.002A.5.5 0 0 1 10 7V2a.5.5 0 0 1 .295-.458 1.775 1.775 0 0 0 .351-.271c.08-.08.155-.17.214-.271H5.14c.06.1.133.191.214.271a1.78 1.78 0 0 0 .37.282"
+                ></path>
                   </svg>
-                </div>
-                <div class="px-2">
+                </div>  
+                <div class="px-2 contact-info">
                   <h6 class="fw-bold mb-0">Location</h6>
                   <p class="text-muted mb-0">Woodburn, Oregon</p>
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
-      </div
     <section class="py-5">
       <div class="container">
         <div
