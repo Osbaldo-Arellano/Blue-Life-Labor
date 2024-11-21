@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap"
     />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <style>
       .contact-info {
@@ -524,57 +525,76 @@
       </div>
     </section>
     <section class="py-5">
-      <div class="container">
+      <div class="container py-5">
         <div class="row mb-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <p class="fw-bold text-success mb-2">Contact Us</p>
-            <h2 class="fw-bold">How You Can Reach Us</h2>
+            <p class="fw-bold text-success mb-2">Contacts</p>
+            <h2 class="fw-bold">How you can reach us</h2>
           </div>
         </div>
         <div class="row d-flex justify-content-center">
           <div class="col-md-6 col-xl-4">
             <div>
-              <form class="p-3 p-xl-4" method="post" data-bs-theme="light">
+              <form id="contact-form">
                 <div class="mb-3">
                   <input
                     class="form-control"
                     type="text"
-                    id="name-1"
+                    id="name"
                     name="name"
                     placeholder="Name"
+                    required
                   />
                 </div>
                 <div class="mb-3">
                   <input
                     class="form-control"
                     type="email"
-                    id="email-1"
+                    id="email"
                     name="email"
                     placeholder="Email"
+                    required
                   />
                 </div>
                 <div class="mb-3">
                   <textarea
                     class="form-control"
-                    id="message-1"
+                    id="message"
                     name="message"
                     rows="6"
                     placeholder="Message"
+                    required
                   ></textarea>
                 </div>
+                <!-- reCAPTCHA widget -->
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="6Lf3coUqAAAAAO4AUYcszmYiqV4iyxt2cgqE1vT7"
+                ></div>
                 <div>
                   <button
+                    id="submit-button"
                     class="btn btn-primary shadow d-block w-100"
                     type="submit"
                   >
                     Send
                   </button>
                 </div>
+                <div id="loading-indicator" class="text-center mt-3" style="display: none;">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Sending...</span>
+                  </div>
+                  <p class="mt-2">Sending your message...</p>
+                </div>
               </form>
             </div>
           </div>
-          <div class="col-md-4 col-xl-4 d-flex justify-content-center justify-content-xl-start">
-            <div class="d-flex flex-wrap flex-md-column justify-content-md-start align-items-md-start h-100">
+          <div
+            class="col-md-4 col-xl-4 d-flex justify-content-center justify-content-xl-start"
+          >
+            <div
+              class="d-flex flex-wrap flex-md-column justify-content-md-start align-items-md-start h-100"
+            >
               <div class="d-flex align-items-center p-3">
                 <div
                   class="bs-icon-md bs-icon-circle bs-icon-primary shadow d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon bs-icon-md"
@@ -592,7 +612,7 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="px-2 contact-info">
+                <div class="px-2">
                   <h6 class="fw-bold mb-0">Phone</h6>
                   <p class="text-muted mb-0">(971) 983-7154</p>
                 </div>
@@ -614,7 +634,7 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="px-2 contact-info">
+                <div class="px-2">
                   <h6 class="fw-bold mb-0">Email</h6>
                   <p class="text-muted mb-0">bluelifelabor@gmail.com</p>
                 </div>
@@ -623,28 +643,29 @@
                 <div
                   class="bs-icon-md bs-icon-circle bs-icon-primary shadow d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon bs-icon-md"
                 >
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                fill="currentColor"
-                viewBox="0 0 16 16"
-                class="bi bi-pin"
-              >
-                <path
-                  d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354zm1.58 1.408-.002-.001.002.001m-.002-.001.002.001A.5.5 0 0 1 6 2v5a.5.5 0 0 1-.276.447h-.002l-.012.007-.054.03a4.922 4.922 0 0 0-.827.58c-.318.278-.585.596-.725.936h7.792c-.14-.34-.407-.658-.725-.936a4.915 4.915 0 0 0-.881-.61l-.012-.006h-.002A.5.5 0 0 1 10 7V2a.5.5 0 0 1 .295-.458 1.775 1.775 0 0 0 .351-.271c.08-.08.155-.17.214-.271H5.14c.06.1.133.191.214.271a1.78 1.78 0 0 0 .37.282"
-                ></path>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    class="bi bi-pin"
+                  >
+                    <path
+                      d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354zm1.58 1.408-.002-.001.002.001m-.002-.001.002.001A.5.5 0 0 1 6 2v5a.5.5 0 0 1-.276.447h-.002l-.012.007-.054.03a4.922 4.922 0 0 0-.827.58c-.318.278-.585.596-.725.936h7.792c-.14-.34-.407-.658-.725-.936a4.915 4.915 0 0 0-.881-.61l-.012-.006h-.002A.5.5 0 0 1 10 7V2a.5.5 0 0 1 .295-.458 1.775 1.775 0 0 0 .351-.271c.08-.08.155-.17.214-.271H5.14c.06.1.133.191.214.271a1.78 1.78 0 0 0 .37.282"
+                    ></path>
                   </svg>
-                </div>  
-                <div class="px-2 contact-info">
+                </div>
+                <div class="px-2">
                   <h6 class="fw-bold mb-0">Location</h6>
                   <p class="text-muted mb-0">Woodburn, Oregon</p>
                 </div>
               </div>
             </div>
           </div>
-          
         </div>
+      </div>
+    </section>
     <section class="py-5">
       <div class="container">
         <div
@@ -775,4 +796,64 @@
       </div>
     </footer>
   </body>
+  <script>
+    const form = document.getElementById("contact-form");
+    const loadingIndicator = document.getElementById("loading-indicator");
+    const submitButton = document.getElementById("submit-button");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Show the spinner and disable the button
+      loadingIndicator.style.display = "block";
+      submitButton.disabled = true;
+
+      // Get form data
+      const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+        "g-recaptcha-response": grecaptcha.getResponse(), // Get reCAPTCHA response
+      };
+
+      // Validate reCAPTCHA
+      if (!formData["g-recaptcha-response"]) {
+        alert("Please complete the CAPTCHA.");
+
+        // Hide the spinner and re-enable the button
+        loadingIndicator.style.display = "none";
+        submitButton.disabled = false;
+
+        return;
+      }
+
+      try {
+        // Send the form data to your backend
+        const response = await fetch("/.netlify/functions/send-mail", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          alert(result.message);
+          form.reset(); // Reset form fields after successful submission
+          grecaptcha.reset(); // Reset reCAPTCHA widget
+        } else {
+          alert("Failed to send the message: " + result.message);
+          grecaptcha.reset(); // Reset reCAPTCHA widget
+        }
+      } catch (error) {
+        alert("Failed to send the message. Please try again!");
+      } finally {
+        // Hide the spinner and re-enable the button
+        loadingIndicator.style.display = "none";
+        submitButton.disabled = false;
+      }
+    });
+
+    </script>
 </html>
