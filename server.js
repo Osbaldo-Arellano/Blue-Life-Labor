@@ -10,8 +10,8 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static("assets")); // Serve static files (HTML, CSS, JS, etc.)
-app.use(express.static(".")); // Serve static files (HTML, CSS, JS, etc.)
+app.use(express.static("assets"));
+app.use(express.static("."));
 
 // Route to handle contact form submission
 app.post("/send-mail", async (req, res) => {
@@ -27,10 +27,10 @@ app.post("/send-mail", async (req, res) => {
 
   // Set up Nodemailer transporter
   let transporter = nodemailer.createTransport({
-    service: "Gmail", // You can use other services like Yahoo, Outlook, etc.
+    service: "Gmail",
     auth: {
-      user: process.env.EMAIL_USER, // Your email address (from .env)
-      pass: process.env.EMAIL_PASS, // Your email password or app-specific password
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
@@ -38,8 +38,8 @@ app.post("/send-mail", async (req, res) => {
 
   // Email options
   let mailOptions = {
-    from: `"${name}" <${email}>`, // Sender address
-    to: process.env.EMAIL_USER, // Your receiving email address
+    from: `"${name}" <${email}>`,
+    to: process.env.EMAIL_USER,
     subject: `New contact form submission from ${name}`,
     text: `You have a new message from your website contact form.\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
   };

@@ -12,6 +12,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap"
     />
+    <!-- Add this in the <head> of your HTML -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
 
   <body>
@@ -107,6 +109,11 @@
                     required
                   ></textarea>
                 </div>
+                <!-- reCAPTCHA widget -->
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="6Lf3coUqAAAAAO4AUYcszmYiqV4iyxt2cgqE1vT7"
+                ></div>
                 <div>
                   <button
                     class="btn btn-primary shadow d-block w-100"
@@ -280,13 +287,22 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      // Get form data
       const formData = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         message: document.getElementById("message").value,
+        "g-recaptcha-response": grecaptcha.getResponse(), // Get reCAPTCHA response
       };
 
+      // Validate reCAPTCHA
+      if (!formData["g-recaptcha-response"]) {
+        alert("Please complete the CAPTCHA.");
+        return;
+      }
+
       try {
+        // Send the form data to your backend
         const response = await fetch("/.netlify/functions/send-mail", {
           method: "POST",
           headers: {
@@ -294,13 +310,13 @@
           },
           body: JSON.stringify(formData),
         });
+
         const result = await response.json();
         alert(result.message);
+        grecaptcha.reset(); // Reset CAPTCHA after submission
       } catch (error) {
-        alert("Failed to send the message. Please try again!!");
+        alert("Failed to send the message. Please try again!");
       }
-
-      console.log(formData);
     });
   </script>
 </html>
