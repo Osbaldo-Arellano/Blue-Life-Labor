@@ -20,15 +20,15 @@ exports.handler = async (event, context) => {
     let transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
-        user: process.env.EMAIL_USER, // Your email address (from .env)
-        pass: process.env.EMAIL_PASS, // Your email password or app-specific password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     // Email options
     let mailOptions = {
-      from: `"${name}" <${email}>`,
-      to: process.env.EMAIL_USER, // Your receiving email address
+      from: process.env.FROM_EMAIL,
+      to: process.env.TO_EMAIL,
       subject: `New contact form submission from ${name}`,
       text: `You have a new message from your website contact form.\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     };
