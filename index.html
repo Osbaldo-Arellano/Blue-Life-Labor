@@ -15,6 +15,11 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <style>
+      .card-body{
+        background-color: white;
+        border-radius: 10%;
+      }
+      
       .contact-info {
         text-align: left;
       }
@@ -59,7 +64,7 @@
       }
 
       .bg-primary-gradient {
-        background: linear-gradient(90deg, #004d7a, #008793); /* Your gradient color */
+        background: linear-gradient(0deg, rgba(38,132,246,1) 0%, rgba(253,187,45,1) 100%);   
         color: white;
       }
 
@@ -129,6 +134,10 @@
         .navbar-nav {
           margin-left: center; /* Push nav items to the right */
         }
+
+        .infoo{
+          display: none;
+        }
       }
     </style>
     
@@ -155,7 +164,7 @@
             <li class="nav-item">
               <a class="nav-link active" href="index.html">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item">              
               <a class="nav-link" href="services.html">Services</a>
             </li>
             <!-- <li class="nav-item">
@@ -173,8 +182,8 @@
         <div class="row pt-5">
           <div class="col-md-8 col-xl-6 text-center text-md-start mx-auto">
             <div class="text-center">
-              <p class="fw-bold text-success mb-2">Blue Life Labor</p>
-              <h1 class="fw-bold">Your Partner in Agricultural Labor Solutions</h1>
+              <p class="fw-bold mb-2 infoo" style="color: #4BFF00;">Blue Life Labor Contractor Corp</p>
+              <h1 class="fw-bold">Your Trusted Partner in Agricultural Labor Solutions</h1>
             </div>
           </div>
           <div class="col-12 col-lg-10 mx-auto">
@@ -235,7 +244,7 @@
     <section class="py-5">
       <div class="container text-center py-5">
         <p class="mb-4" style="font-size: 1.6rem">
-          Trusted by farmers across
+          Counted on by farmers across 
           <span class="text-dark bg-success-subtle bg-success-light p-1"
             ><strong>Oregon</strong></span
           >&nbsp; for quality labor solutions.
@@ -434,8 +443,8 @@
             class="row row-cols-1 row-cols-md-2 d-flex justify-content-center"
           >
             <div class="col mb-4">
-              <div class="card bg-primary-subtle">
-                <div class="card-body text-center px-4 py-5 px-md-5">
+              <div class="card bg-primary-subtle" >
+                <div class="card-body-sub text-center px-4 py-5 px-md-5" style="background-color: #FEBA03; border-radius: 5%;">
                   <p class="fw-bold text-primary card-text mb-2">
                     Experienced Labor
                   </p>
@@ -451,15 +460,15 @@
             </div>
             <div class="col mb-4">
               <div class="card bg-secondary-subtle">
-                <div class="card-body text-center px-4 py-5 px-md-5">
-                  <p class="fw-bold text-secondary card-text mb-2">
+                <div class="card-body-sub text-center px-4 py-5 px-md-5" style="background-color: #2684F6; border-radius: 5%;">
+                  <p class="fw-bold text-info card-text mb-2">
                     Flexible Solutions
                   </p>
                   <h5 class="fw-bold card-title mb-3">
                     We offer flexible labor solutions tailored to your farm's
                     specific needs and schedules.
                   </h5>
-                  <a class="btn btn-secondary btn-sm" href="contacts.html">
+                  <a class="btn btn-info btn-sm" href="contacts.html">
                     Learn more
                   </a>
                 </div>
@@ -467,7 +476,7 @@
             </div>
             <div class="col mb-4">
               <div class="card bg-info-subtle">
-                <div class="card-body text-center px-4 py-5 px-md-5">
+                <div class="card-body-sub text-center px-4 py-5 px-md-5" style="background-color: #2684F6; border-radius: 5%;">
                     <p class="fw-bold text-info card-text mb-2">
                       Quality Assurance
                     </p>
@@ -478,7 +487,21 @@
                       Learn more
                     </a>
                   </div>
-                  
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card bg-primary-subtle" >
+                <div class="card-body-sub text-center px-4 py-5 px-md-5" style="background-color: #FEBA03; border-radius: 5%;">
+                  <p class="fw-bold text-primary card-text mb-2">
+                    Quality Assurance
+                  </p>
+                  <h5 class="fw-bold card-title mb-3">
+                    We are committed to providing high-quality services to ensure the success of your agricultural operations.
+                  </h5>
+                  <a href="contacts.html" class="btn btn-primary btn-sm">
+                    Learn more
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -756,7 +779,7 @@
       <div class="container-fluid py-4">
         <div class="row">
           <div class="">
-            <p style="color: #008793;">&copy; 2024 Blue Life Labor. All Rights Reserved.</p>
+            <p style="color: #2684F6;">&copy; 2024 Blue Life Labor. All Rights Reserved.</p>
           </div>
         </div>
       </div>
