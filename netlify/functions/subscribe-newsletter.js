@@ -1,3 +1,5 @@
+const nodemailer = require("nodemailer");
+
 exports.handler = async (event, context) => {
   try {
     console.log("Function started");
