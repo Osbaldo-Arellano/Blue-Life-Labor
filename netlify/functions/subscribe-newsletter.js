@@ -2,8 +2,8 @@ const nodemailer = require("nodemailer");
 
 exports.handler = async (event, context) => {
   try {
-    // Parse the request body
-    const { email } = JSON.parse(event.body);
+    // Parse the body of the POST request
+    const email = JSON.parse(event.body);
 
     // Basic input validation
     if (!email) {
@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
         statusCode: 400,
         body: JSON.stringify({
           success: false,
-          message: "Email address is required.",
+          message: "Please fill out all required fields.",
         }),
       };
     }
@@ -28,9 +28,9 @@ exports.handler = async (event, context) => {
     // Email options
     let mailOptions = {
       from: process.env.FROM_EMAIL,
-      to: process.env.TO_EMAIL, // Or save to a database instead of sending emails
-      subject: "New Newsletter Subscription",
-      text: `You have a new subscriber!\n\nEmail: ${email}`,
+      to: process.env.TO_EMAIL,
+      subject: `New newsletter submission!`,
+      text: `You have a new subscriber from your website newsletter.\n\nEmail: ${email}\n\n`,
     };
 
     // Send the email
@@ -40,18 +40,18 @@ exports.handler = async (event, context) => {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
-        message: "Thank you for subscribing to our newsletter!",
+        message: "Your message has been sent successfully!",
       }),
     };
   } catch (error) {
-    console.error("Error processing subscription:", error);
+    console.error("Error sending email:", error);
 
     return {
       statusCode: 500,
       body: JSON.stringify({
         success: false,
         message:
-          "There was an error processing your subscription. Please try again later.",
+          "There was an error sending your message. Please try again later.",
       }),
     };
   }
