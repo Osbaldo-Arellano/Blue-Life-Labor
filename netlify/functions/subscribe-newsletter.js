@@ -1,22 +1,20 @@
-const nodemailer = require("nodemailer");
-
 exports.handler = async (event, context) => {
   try {
-    // Parse the body of the POST request
-    const email = JSON.parse(event.body);
+    console.log("Function started");
+    const { email } = JSON.parse(event.body);
+    console.log("Parsed email:", email);
 
-    // Basic input validation
     if (!email) {
+      console.log("Validation failed: Missing email");
       return {
         statusCode: 400,
         body: JSON.stringify({
           success: false,
-          message: "Please fill out all required fields.",
+          message: "Please provide a valid email address.",
         }),
       };
     }
 
-    // Set up Nodemailer transporter
     let transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
@@ -24,34 +22,32 @@ exports.handler = async (event, context) => {
         pass: process.env.EMAIL_PASS,
       },
     });
+    console.log("Transporter created");
 
-    // Email options
     let mailOptions = {
       from: process.env.FROM_EMAIL,
       to: process.env.TO_EMAIL,
       subject: `New newsletter submission!`,
-      text: `You have a new subscriber from your website newsletter.\n\nEmail: ${email}\n\n`,
+      text: `You have a new subscriber: ${email}`,
     };
 
-    // Send the email
     await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully");
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
-        message: "Your message has been sent successfully!",
+        message: "Subscription successful!",
       }),
     };
   } catch (error) {
-    console.error("Error sending email:", error);
-
+    console.error("Error occurred:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({
         success: false,
-        message:
-          "There was an error sending your message. Please try again later.",
+        message: "An error occurred. Please try again later.",
       }),
     };
   }
