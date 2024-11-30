@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
       service: "Gmail",
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS_2,
+        pass: process.env.EMAIL_PASS,
       },
     });
     console.log("Transporter created");
