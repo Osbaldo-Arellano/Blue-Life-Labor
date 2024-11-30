@@ -9,12 +9,18 @@
     <title>Home - Blue Life Labor</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap"
     />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
+      
       .card-body{
         background-color: white;
         border-radius: 10%;
@@ -64,14 +70,19 @@
       }
 
       .bg-primary-gradient {
-        background: linear-gradient(0deg, rgba(38,132,246,1) 0%, rgba(253,187,45,1) 100%);   
+        background: linear-gradient(0deg, #243f8b, black 100%);   
+        color: white;
+      }
+
+      .bg-primary-gradient-2 {
+        background: linear-gradient(0deg, #101d40, #fdbb2d 120%);   
         color: white;
       }
 
       body{
-        background: linear-gradient(0deg, rgba(38,132,246,1) 0%, rgba(253,187,45,1) 100%);   
-        color: white;
+        background: linear-gradient(0deg, #243f8b, black 95%);   
       }
+
 
       hr {
         border-color: rgba(255, 255, 255, 0.2); /* Optional: Adjust HR styling */
@@ -120,6 +131,60 @@
         visibility: visible;
       }
 
+      #rotatingHeader {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .custom-header-text {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 0);
+        padding: 10px 20px;
+        border-radius: 8px;
+        z-index: 10;
+        font-family: "Oswald", sans-serif; /* Apply Oswald font */
+      }
+
+      .custom-header-text h1 {
+        font-size: 2rem;
+        margin: 0;
+        font-weight: 1000; /* Bold weight for Oswald */
+      }
+
+      .custom-header-text p {
+        font-size: 1.2rem;
+        margin: 0 0 10px 0;
+        font-weight: 1000; /* Regular weight for Oswald */
+      }
+
+      .image-container {
+        height: 100%;
+        width: 100%;
+        position: relative;
+      }
+
+      .rotating-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .rotating-image.active {
+        opacity: 1;
+        z-index: 5;
+      }
+
       /* Target mobile devices */
       @media (max-width: 768px) {
         .navbar {
@@ -142,6 +207,12 @@
 
         .infoo{
           display: none;
+        }
+
+        .custom-header-text p {
+          content: "PROFESSIONALISM PASSION PRODUCTIVITY"; /* Removes dots */
+          font-size: 2.1rem; /* Optional: adjust font size for mobile */
+          color: white;
         }
       }
     </style>
@@ -194,75 +265,50 @@
         </div>
       </div>
     </nav>
-    <header class="bg-primary-gradient">
-      <div class="container pt-4 pt-xl-5">
-        <div class="row pt-5">
-          <div class="col-md-8 col-xl-6 text-center text-md-start mx-auto">
-            <div class="text-center">
-              <p class="fw-bold mb-2 infoo" style="color: #4BFF00;">Blue Life Labor Contractor Corp</p>
-              <h1 class="fw-bold">Your Trusted Partner in Agricultural Labor Solutions</h1>
-            </div>
-          </div>
-          <div class="col-12 col-lg-10 mx-auto">
-            <div
-              class="position-relative"
-              style="display: flex; flex-wrap: wrap; justify-content: flex-end"
-            >
-              <div
-                style="
-                  position: relative;
-                  flex: 0 0 45%;
-                  transform: translate3d(-15%, 35%, 0);
-                "
-              >
-                <img
-                  class="img-fluid"
-                  data-bss-parallax=""
-                  data-bss-parallax-speed="0.8"
-                  src="assets/img/products/blackberry-picker.webp"
-                  alt="Workers harvesting crops"
-                />
-              </div>
-              <div
-                style="
-                  position: relative;
-                  flex: 0 0 45%;
-                  transform: translate3d(-5%, 20%, 0);
-                "
-              >
-                <img
-                  class="img-fluid"
-                  data-bss-parallax=""
-                  data-bss-parallax-speed="0.4"
-                  src="assets/img/products/mesh.webp"
-                  alt="Irrigation system in a field"
-                />
-              </div>
-              <div
-                style="
-                  position: relative;
-                  flex: 0 0 60%;
-                  transform: translate3d(0, 0%, 0);
-                "
-              >
-                <img
-                  class="img-fluid"
-                  data-bss-parallax=""
-                  data-bss-parallax-speed="0.25"
-                  src="assets/img/products/image.webp"
-                  alt="Tractor preparing field"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <section class="py-5" style="border-top: 5px solid rgba(255, 255, 255, 0.5);">
+
+    <header
+    id="rotatingHeader"
+    class="bg-primary-gradient"
+    style="height: 100vh; position: relative; overflow: hidden;"
+  >
+    <!-- Text at the top -->
+    <div class="custom-header-text">
+      <p class="fw-bold mb-2">PROFESSIONALISM • PASSION • PRODUCTIVITY</p>
+      <h1 class="header-text">Your Trusted Partner in Agricultural Labor Solutions</h1>
+    </div>
+  
+    <!-- Image container -->
+    <div class="image-container">
+      <img
+        src="assets/img/projects/28.webp"
+        class="rotating-image active"
+        alt="Workers harvesting crops"
+      />
+      <img
+        src="assets/img/products/mesh.webp"
+        class="rotating-image"
+        alt="Irrigation system in a field"
+      />
+      <img
+        src="assets/img/projects/6.webp"
+        class="rotating-image"
+        alt="Tractor preparing field"
+      />
+      <img
+        src="assets/img/projects/32.webp"
+        class="rotating-image"
+        alt="Tractor preparing field"
+      />
+    </div>
+  </header>
+  
+
+
+    <section class="py-5" style="border-top: 6px solid rgba(253, 187, 45, 1);">
       <div class="container text-center py-5">
-        <p class="mb-4" style="font-size: 1.6rem">
+        <p class="mb-4" style="font-size: 1.6rem; color: white;">
           Counted on by farmers across 
-          <span class="text-dark bg-success-subtle bg-success-light p-1"
+          <span class="text-dark bg-success bg-success-light p-1"
             ><strong>Oregon</strong></span
           >&nbsp; for quality labor solutions.
         </p>
@@ -297,45 +343,21 @@
           </div>
         </section>
       
-    <section>
-      <div class="container bg-primary-gradient py-5">
-        <div class="row">
-          <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <p class="fw-bold text-success mb-2">Our Services</p>
-            <h3 class="fw-bold">What We Can Do for You</h3>
+        <section class="py-5" style="border-top: 5px solid rgba(253, 187, 45, 1); width: 100%;">
+        <div class="container bg-primary-gradient-2 py-5" style="border-radius: 1%;">
+          <div class="row">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+              <p class="fw-bold mb-2">Our Services</p>
+              <h3 class="fw-bold">What We Can Do for You</h3>
+            </div>
           </div>
-        </div>
-        <div class="py-5 p-lg-5">
-          <div
-            class="row row-cols-1 row-cols-md-2 mx-auto"
-            style="max-width: 900px"
-          >
+          <div class="py-5 p-lg-5">
+            <div
+              class="row row-cols-1 row-cols-md-2 mx-auto"
+            >
             <div class="col mb-5">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <div
-                    class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
-                    style="top: 1rem; right: 1rem; position: absolute"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      class="bi bi-tree text-success"
-                    >
-                      <path
-                        d="M8 0a.5.5 0 0 1 .5.5v.86l.522.237c.598.27 1.45.608 2.054 1.214C11.825 3.51 12.001 4.3 12 5H4c0-.7.175-1.49.924-2.189.604-.606 1.456-.944 2.054-1.214L8 1.36V.5A.5.5 0 0 1 8 0z"
-                      ></path>
-                      <path
-                        d="M4 5h8v6H4V5zm7 5V6H5v4h6z"
-                      ></path>
-                      <path
-                        d="M8 11.5a.5.5 0 0 1 .5-.5h.5v-1H7v1h.5a.5.5 0 0 1 .5.5v3h1v-3z"
-                      ></path>
-                    </svg>
-                  </div>
                   <h5 class="fw-bold card-title">Harvesting Services</h5>
                   <p class="text-muted card-text mb-4">
                     Our skilled workforce ensures efficient and timely harvesting
@@ -350,32 +372,13 @@
             <div class="col mb-5">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <div
-                    class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
-                    style="top: 1rem; right: 1rem; position: absolute"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      class="bi bi-droplet text-success"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M7.646.146a.5.5 0 0 1 .708 0l5 5A6.5 6.5 0 1 1 2.646 5.146l5-5zm.708 1.06L3.354 6.207A5.5 5.5 0 1 0 13.5 11.5a5.5 5.5 0 0 0-5.146-8.294l-.5-.5z"
-                      ></path>
-                    </svg>
-                  </div>
                   <h5 class="fw-bold card-title">
-                    Irrigation Installation & Maintenance
+                    Expert Pruning Services 
                   </h5>
                   <p class="text-muted card-text mb-4">
-                    We provide installation and maintenance of irrigation systems
-                    to optimize water usage and improve crop production.
+                    Let us provide you with our talented pruning workforce. We will work together to tailor a pruning style for each crop to maximize yields. 
                   </p>
-                  <a class="btn btn-primary shadow" href="contacts.html?service=Irrigation%20Installation%20%26%20%20Maintenance">
+                  <a class="btn btn-primary shadow" href="contacts.html?service=Purning%20Services">
                     Learn more
                   </a>
                 </div>
@@ -384,32 +387,14 @@
             <div class="col mb-4">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <div
-                    class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
-                    style="top: 1rem; right: 1rem; position: absolute"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      class="bi bi-seedling text-success"
-                    >
-                      <path
-                        d="M12.317 1.262a1 1 0 0 0-1.634.109 5.443 5.443 0 0 0-.5 3.71A5.455 5.455 0 0 0 9 7c0 2.355-1.558 4.355-3.75 5.223V13H6a.5.5 0 0 1 0 1H3v1a.5.5 0 0 1-1 0v-1H1a.5.5 0 0 1 0-1h1v-.777C1.558 11.355 0 9.355 0 7a5.455 5.455 0 0 1 .817-2.12 5.443 5.443 0 0 1-.5-3.71 1 1 0 0 1 1.635-.109 5.443 5.443 0 0 1 4.073 0A1 1 0 0 1 6.317 1.262a5.443 5.443 0 0 1 4.073 0z"
-                      ></path>
-                    </svg>
-                  </div>
                   <h5 class="fw-bold card-title">
-                    Field Preparation & Planting
+                    Field Preparation & Maintenance 
                   </h5>
                   <p class="text-muted card-text mb-4">
-                    Our team offers comprehensive field preparation, including
-                    tilling and planting services, to set the foundation for a
-                    successful season.
+                    Our team offers comprehensive field preparation, including planting, hoeing, tilling, tying, etc., to set the foundation for a successful season. 
                   </p>
-                  <a class="btn btn-primary shadow" href="contacts.html?service=Field%20Preperation%20%26%20Planting">
+                  <a class="btn btn-primary shadow" href="contacts.html?service=Field%20Preperation%20%26%20Maintenance"
+                  >
                     Learn more
                   </a>
                 </div>
@@ -418,26 +403,6 @@
             <div class="col mb-4">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <div
-                    class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
-                    style="top: 1rem; right: 1rem; position: absolute"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      class="bi bi-bug text-success"
-                    >
-                      <path
-                        d="M4.355.522a.5.5 0 0 1 .637-.057L6 1.293l1.008-.828a.5.5 0 0 1 .647.058L8.697 1.9a.5.5 0 1 1-.79.612L7 1.707 6.093 2.513a.5.5 0 1 1-.786-.614l1.071-.858L5.5 2.293l-1.146-.95a.5.5 0 0 1 .001-.82z"
-                      ></path>
-                      <path
-                        d="M14 4h-1.5A2.5 2.5 0 0 0 10 6.5V7h-4v-.5A2.5 2.5 0 0 0 3.5 4H2a2 2 0 0 0 0 4h1v1a5 5 0 1 0 10 0V8h1a2 2 0 1 0 0-4zM3.5 5A1.5 1.5 0 0 1 5 6.5V7h6v-.5A1.5 1.5 0 0 1 12.5 5h1a1 1 0 1 1 0 2h-1v1a4 4 0 1 1-8 0V7H3a1 1 0 1 1 0-2h.5z"
-                      ></path>
-                    </svg>
-                  </div>
                   <h5 class="fw-bold card-title">Pest & Disease Management</h5>
                   <p class="text-muted card-text mb-4">
                     We assist in controlling pests and diseases through safe and
@@ -530,8 +495,8 @@
         <div class="row mb-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
             <p class="fw-bold text-success mb-2">Testimonials</p>
-            <h2 class="fw-bold"><strong>What People Say About Us</strong></h2>
-            <p class="text-muted">
+            <h2 class="fw-bold" style="color: white;"><strong>What People Say About Us</strong></h2>
+            <p style="color: white;">
               No matter the project, our team can handle it.&nbsp;
             </p>
           </div>
@@ -559,7 +524,7 @@
                 />
                 <div>
                   <p class="fw-bold text-primary mb-0">Mario Rodriguez</p>
-                  <p class="text-muted mb-0">Vineyard Owner</p>
+                  <p class="mb-0" style="color: white;">Vineyard Owner</p>
                 </div>
               </div>
             </div>
@@ -584,7 +549,7 @@
                 />
                 <div>
                   <p class="fw-bold text-primary mb-0">James Peterson</p>
-                  <p class="text-muted mb-0">Farm Manager, Oregon Farms</p>
+                  <p class="mb-0" style="color: white;">Farm Manager, Oregon Farms</p>
                 </div>
               </div>
             </div>
@@ -609,7 +574,7 @@
                 />
                 <div>
                   <p class="fw-bold text-primary mb-0">Mike Clark</p>
-                  <p class="text-muted mb-0">Owner, Green Acres Farm</p>
+                  <p class="mb-0" style="color: white;">Owner, Green Acres Farm</p>
                 </div>
               </div>
             </div>
@@ -622,7 +587,7 @@
         <div class="row mb-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
             <p class="fw-bold text-success mb-2">Contacts</p>
-            <h2 class="fw-bold">How you can reach us</h2>
+            <h2 class="fw-bold" style="color: white;">How you can reach us</h2>
           </div>
         </div>
         <div class="row d-flex justify-content-center">
@@ -702,9 +667,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="ps-3">
+                <div class="ps-3" style="color: white;">
                   <h6 class="fw-bold mb-0">Phone</h6>
-                  <p class="text-muted mb-0">(971) 983-7154</p>
+                  <p class="mb-0">(971) 983-7154</p>
                 </div>
               </div>
               <div class="d-flex align-items-start p-3">
@@ -725,9 +690,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="ps-3">
+                <div class="ps-3" style="color: white;">
                   <h6 class="fw-bold mb-0">Email</h6>
-                  <p class="text-muted mb-0">bluelifelabor@gmail.com</p>
+                  <p class="mb-0">bluelifelabor@gmail.com</p>
                 </div>
               </div>
               <div class="d-flex align-items-start p-3">
@@ -748,9 +713,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="ps-3">
+                <div class="ps-3" style="color: white;">
                   <h6 class="fw-bold mb-0">Location</h6>
-                  <p class="text-muted mb-0">Woodburn, Oregon</p>
+                  <p class="mb-0">Woodburn, Oregon</p>
                 </div>
               </div>
             </div>
@@ -933,6 +898,41 @@
       
         document.addEventListener("scroll", updateLogo);
         document.addEventListener("DOMContentLoaded", updateLogo);
+      </script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll(".rotating-image");
+        let currentIndex = 0;
+
+        function rotateImages() {
+          // Remove the "active" class from the current image
+          images[currentIndex].classList.remove("active");
+
+          // Update the index to the next image
+          currentIndex = (currentIndex + 1) % images.length;
+
+          // Add the "active" class to the new image
+          images[currentIndex].classList.add("active");
+        }
+
+        // Rotate every 3.5 seconds
+        setInterval(rotateImages, 3500);
+      });
+
+
+      </script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        if (window.innerWidth <= 768) {
+          const textElement = document.querySelector(".custom-header-text p");
+          textElement.textContent = "PROFESSIONALISM PASSION PRODUCTIVITY";
+          const textElement2 = document.querySelector(".header-text")
+          textElement2.textContent = " "
+        }
+      });
+
       </script>
   </body>
 </html>
