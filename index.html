@@ -17,40 +17,38 @@
       href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap"
     />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
-      
-      .card-body{
+      .card-body {
         background-color: white;
         border-radius: 10%;
       }
-      
+
       .contact-info {
         text-align: left;
       }
-    
+
       .contact-info h6,
       .contact-info p {
         margin: 0; /* Remove default margins for consistency */
       }
-      
+
       /* Set a consistent height for the carousel and use object-fit */
       #imageCarousel img {
         height: 500px; /* Adjust the height as needed */
         object-fit: cover; /* Ensures the image covers the container */
         width: 100%; /* Ensures the image spans the width */
       }
-    
+
       /* Optional: Add a background color for placeholder loading */
       #imageCarousel .carousel-item {
         background-color: #f8f9fa; /* Light gray */
       }
       #modalImage {
-      max-height: 90vh; /* Prevents the image from exceeding the viewport height */
-      width: auto; /* Maintains aspect ratio */
+        max-height: 90vh; /* Prevents the image from exceeding the viewport height */
+        width: auto; /* Maintains aspect ratio */
       }
-       /* Thumbnail container styling */
+      /* Thumbnail container styling */
       #carouselThumbnails {
         max-width: 800px;
         overflow-x: auto; /* Enable horizontal scrolling if thumbnails exceed container width */
@@ -70,22 +68,26 @@
       }
 
       .bg-primary-gradient {
-        background: linear-gradient(0deg, #243f8b, black 100%);   
+        background: linear-gradient(0deg, #243f8b, black 100%);
         color: white;
       }
 
       .bg-primary-gradient-2 {
-        background: linear-gradient(0deg, #112049, #fdbb2d 130%);   
+        background: linear-gradient(0deg, #112049, black 130%);
         color: white;
       }
 
-      body{
-        background: linear-gradient(0deg, #080f22, #1f3981 95%);   
+      body {
+        background: linear-gradient(0deg, #080f22, #1f3981 95%);
       }
 
-
       hr {
-        border-color: rgba(255, 255, 255, 0.2); /* Optional: Adjust HR styling */
+        border-color: rgba(
+          255,
+          255,
+          255,
+          0.2
+        ); /* Optional: Adjust HR styling */
       }
 
       /* General Logo Styling */
@@ -185,6 +187,35 @@
         z-index: 5;
       }
 
+      .translucent-background {
+        background-color: rgba(255, 255, 255, 0.5); /* White with 80% opacity */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: inline-block; /* Keeps the background size minimal */
+      }
+
+      .translucent-background img {
+        max-height: 100px; /* Adjust image size if needed */
+        width: auto;
+        transition: transform 0.3s ease; /* Smooth hover effect */
+      }
+
+      .translucent-background img:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
+      }
+
+      section {
+        background: linear-gradient(
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.7)
+        ); /* Add a subtle gradient for the section */
+      }
+
+      p {
+        color: white; /* Ensure text stands out */
+      }
+
       /* Target mobile devices */
       @media (max-width: 768px) {
         .navbar {
@@ -205,7 +236,7 @@
           margin-left: center; /* Push nav items to the right */
         }
 
-        .infoo{
+        .infoo {
           display: none;
         }
 
@@ -216,7 +247,6 @@
         }
       }
     </style>
-    
   </head>
   <body>
     <nav
@@ -252,7 +282,7 @@
             <li class="nav-item">
               <a class="nav-link active" href="index.html">Home</a>
             </li>
-            <li class="nav-item">              
+            <li class="nav-item">
               <a class="nav-link" href="services.html">Services</a>
             </li>
             <!-- <li class="nav-item">
@@ -267,103 +297,172 @@
     </nav>
 
     <header
-    id="rotatingHeader"
-    class="bg-primary-gradient"
-    style="height: 100vh; position: relative; overflow: hidden;"
-  >
-    <!-- Text at the top -->
-    <div class="custom-header-text">
-      <p class="fw-bold mb-2" style="color: #fdbb2d;">PROFESSIONALISM • PASSION • PRODUCTIVITY</p>
-      <h1 class="header-text">Your Trusted Partner in Agricultural Labor Solutions</h1>
-    </div>
-  
-    <!-- Image container -->
-    <div class="image-container">
-      <img
-        src="assets/img/projects/28.webp"
-        class="rotating-image active"
-        alt="Workers harvesting crops"
-      />
-      <img
-        src="assets/img/products/mesh.webp"
-        class="rotating-image"
-        alt="Irrigation system in a field"
-      />
-      <img
-        src="assets/img/projects/6.webp"
-        class="rotating-image"
-        alt="Tractor preparing field"
-      />
-      <img
-        src="assets/img/projects/32.webp"
-        class="rotating-image"
-        alt="Tractor preparing field"
-      />
-    </div>
-  </header>
-  
-
-
-    <section class="py-5" style="border-top: 6px solid rgba(253, 187, 45, 1);">
-      <div class="container text-center py-5">
-        <p class="mb-4" style="font-size: 1.6rem; color: white;">
-          Counted on by farmers across 
-          <span class="text-dark bg-success bg-success-light p-1"
-            ><strong>Oregon</strong></span
-          >&nbsp; for quality labor solutions.
+      id="rotatingHeader"
+      class="bg-primary-gradient"
+      style="height: 100vh; position: relative; overflow: hidden"
+    >
+      <!-- Text at the top -->
+      <div class="custom-header-text">
+        <p class="fw-bold mb-2" style="color: #fdbb2d">
+          PROFESSIONALISM • PASSION • PRODUCTIVITY
         </p>
-        <!-- Image Gallery -->
-        <section class="py-5">
-          <div class="container">
-            <div class="row mb-5">
-              <div class="col-md-8 col-xl-6 text-center mx-auto">
-                <p class="fw-bold mb-2" style="color: #fdbb2d;">Our Work in Action</p>
-              </div>
-            </div>
-            <div id="imageCarousel" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 800px;">
-              <div class="carousel-inner">
-                <!-- Slides will be added dynamically -->
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>  
-            <!-- Thumbnail navigation -->
-                <!-- Thumbnail Navigation -->
-            <div class="mt-4 d-flex justify-content-center">
-              <div id="carouselThumbnails" class="d-flex">
-                <!-- Thumbnails will be added dynamically -->
-              </div>
-            </div>
+        <h1 class="header-text">
+          Your Trusted Partner in Agricultural Labor Solutions
+        </h1>
+      </div>
+
+      <!-- Image container -->
+      <div class="image-container">
+        <img
+          src="assets/img/projects/28.webp"
+          class="rotating-image active"
+          alt="Workers harvesting crops"
+        />
+        <img
+          src="assets/img/products/mesh.webp"
+          class="rotating-image"
+          alt="Irrigation system in a field"
+        />
+        <img
+          src="assets/img/projects/6.webp"
+          class="rotating-image"
+          alt="Tractor preparing field"
+        />
+        <img
+          src="assets/img/projects/32.webp"
+          class="rotating-image"
+          alt="Tractor preparing field"
+        />
+      </div>
+    </header>
+    <section class="py-5">
+      <div class="container text-center py-5">
+        <p class="mb-4" style="font-size: 1.6rem; color: white">
+          Counted on by farmers across
+          <span class="text-dark bg-success bg-success-light p-1">
+            <strong>Oregon</strong>
+          </span>
+          &nbsp;for quality labor solutions.
+        </p>
+
+        <!-- Translucent Background Container -->
+        <div class="translucent-background">
+          <a href="https://www.jbinstantlawn.net/">
+            <img
+              class="m-3"
+              src="assets/img/brands/header_new_3-removebg-preview.png"
+              alt="JB Instant Lawn"
+            />
+          </a>
+          <a href="https://www.brentanos-treefarm.com/">
+            <img
+              class="m-3"
+              src="assets/img/brands/logo_header.png"
+              alt="brentanos Tree Farm"
+            />
+          </a>
+          <a href="http://www.holidaytreefarm.com/">
+            <img
+              class="m-3"
+              src="assets/img/brands/brand.png"
+              alt="Holiday Tree Farm"
+            />
+          </a>
+          <a href="https://www.facebook.com/HBFInternational/">
+            <img
+              class="m-3"
+              src="assets/img/brands/images-removebg-preview.png"
+              alt="Brand 5"
+            />
+          </a>
+          <a href="https://www.oblueberry.com/">
+            <img
+              class="m-3"
+              src="assets/img/brands/video-poster-removebg-preview.png"
+              alt="Oregon Blueberry Farms"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-8 col-xl-6 text-center mx-auto">
+            <p class="fw-bold mb-2" style="color: #fdbb2d">
+              Our Work in Action
+            </p>
           </div>
-        </section>
-      
-        <section class="py-5" style="border-top: 5px solid rgba(253, 187, 45, 1); width: 100%;">
-        <div class="container bg-primary-gradient-2 py-5" style="border-radius: 1%;">
-          <div class="row">
-            <div class="col-md-8 col-xl-6 text-center mx-auto">
-              <p class="fw-bold mb-2">Our Services</p>
-              <h3 class="fw-bold">What We Can Do for You</h3>
-            </div>
+        </div>
+        <div
+          id="imageCarousel"
+          class="carousel slide mx-auto"
+          data-bs-ride="carousel"
+          style="max-width: 800px"
+        >
+          <div class="carousel-inner">
+            <!-- Slides will be added dynamically -->
           </div>
-          <div class="py-5 p-lg-5">
-            <div
-              class="row row-cols-1 row-cols-md-2 mx-auto"
-            >
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#imageCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#imageCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <!-- Thumbnail navigation -->
+        <!-- Thumbnail Navigation -->
+        <div class="mt-4 d-flex justify-content-center">
+          <div id="carouselThumbnails" class="d-flex">
+            <!-- Thumbnails will be added dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-5"
+      style="border-top: 5px solid rgba(253, 187, 45, 1); width: 100%"
+    >
+      <div
+        class="container bg-primary-gradient-2 py-5"
+        style="border-radius: 1%"
+      >
+        <div class="row">
+          <div class="col-md-8 col-xl-6 text-center mx-auto">
+            <p class="fw-bold mb-2">Our Services</p>
+            <h3 class="fw-bold">What We Can Do for You</h3>
+          </div>
+        </div>
+        <div class="py-5 p-lg-5">
+          <div class="row row-cols-1 row-cols-md-2 mx-auto">
             <div class="col mb-5">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
                   <h5 class="fw-bold card-title">Harvesting Services</h5>
                   <p class="text-muted card-text mb-4">
-                    Our skilled workforce ensures efficient and timely harvesting
-                    of a variety of crops, minimizing loss and maximizing yield.
+                    Our skilled workforce ensures efficient and timely
+                    harvesting of a variety of crops, minimizing loss and
+                    maximizing yield.
                   </p>
-                  <a class="btn btn-primary shadow" href="contacts.html?service=Harvesting%20Services">
+                  <a
+                    class="btn btn-primary shadow"
+                    href="contacts.html?service=Harvesting%20Services"
+                  >
                     Learn more
                   </a>
                 </div>
@@ -372,13 +471,16 @@
             <div class="col mb-5">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <h5 class="fw-bold card-title">
-                    Pruning Services 
-                  </h5>
+                  <h5 class="fw-bold card-title">Pruning Services</h5>
                   <p class="text-muted card-text mb-4">
-                    Let us provide you with our talented pruning workforce. We will work together to tailor a pruning style for each crop to maximize yields. 
+                    Let us provide you with our talented pruning workforce. We
+                    will work together to tailor a pruning style for each crop
+                    to maximize yields.
                   </p>
-                  <a class="btn btn-primary shadow" href="contacts.html?service=Purning%20Services">
+                  <a
+                    class="btn btn-primary shadow"
+                    href="contacts.html?service=Purning%20Services"
+                  >
                     Learn more
                   </a>
                 </div>
@@ -388,12 +490,16 @@
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
                   <h5 class="fw-bold card-title">
-                    Field Preparation & Maintenance 
+                    Field Preparation & Maintenance
                   </h5>
                   <p class="text-muted card-text mb-4">
-                    Our team offers comprehensive field preparation, including planting, hoeing, tilling, tying, etc., to set the foundation for a successful season. 
+                    Our team offers comprehensive field preparation, including
+                    planting, hoeing, tilling, tying, etc., to set the
+                    foundation for a successful season.
                   </p>
-                  <a class="btn btn-primary shadow" href="contacts.html?service=Field%20Preperation%20%26%20Maintenance"
+                  <a
+                    class="btn btn-primary shadow"
+                    href="contacts.html?service=Field%20Preperation%20%26%20Maintenance"
                   >
                     Learn more
                   </a>
@@ -408,7 +514,10 @@
                     We assist in controlling pests and diseases through safe and
                     effective methods to protect your crops and maximize yield.
                   </p>
-                  <a class="btn btn-primary shadow" href="contacts.html?service=Pest%20%26%20Disease%20Management">
+                  <a
+                    class="btn btn-primary shadow"
+                    href="contacts.html?service=Pest%20%26%20Disease%20Management"
+                  >
                     Learn more
                   </a>
                 </div>
@@ -418,85 +527,15 @@
         </div>
       </div>
     </section>
-    <!-- <section>
-      <div class="container py-5">
-        <div class="mx-auto" style="max-width: 900px">
-          <div
-            class="row row-cols-1 row-cols-md-2 d-flex justify-content-center"
-          >
-            <div class="col mb-4">
-              <div class="card bg-primary-subtle" >
-                <div class="card-body-sub text-center px-4 py-5 px-md-5" style="background-color: white; border-radius: 5%;">
-                  <p class="fw-bold card-text mb-2">
-                    Experienced Labor
-                  </p>
-                  <h5 class="fw-bold card-title mb-3">
-                    Our team consists of experienced workers specialized in
-                    various agricultural tasks.
-                  </h5>
-                  <a class="btn btn-primary btn-sm" href="contacts.html">
-                    Learn more
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-4">
-              <div class="card bg-secondary-subtle">
-                <div class="card-body-sub text-center px-4 py-5 px-md-5" style="background-color: white; border-radius: 5%;">
-                  <p class="fw-bold card-text mb-2">
-                    Flexible Solutions
-                  </p>
-                  <h5 class="fw-bold card-title mb-3">
-                    We offer flexible labor solutions tailored to your farm's
-                    specific needs and schedules.
-                  </h5>
-                  <a class="btn btn-primary btn-sm" href="contacts.html">
-                    Learn more
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-4">
-              <div class="card bg-info-subtle">
-                <div class="card-body-sub text-center px-4 py-5 px-md-5" style="background-color: white; border-radius: 5%;">
-                    <p class="fw-bold card-text mb-2">
-                      Quality Assurance
-                    </p>
-                    <h5 class="fw-bold card-title mb-3">
-                      We are committed to providing high-quality services to ensure the success of your agricultural operations.
-                    </h5>
-                    <a href="contacts.html" class="btn btn-primary btn-sm">
-                      Learn more
-                    </a>
-                  </div>
-              </div>
-            </div>
-            <div class="col mb-4">
-              <div class="card bg-primary-subtle" >
-                <div class="card-body-sub text-center px-4 py-5 px-md-5" style="background-color: white; border-radius: 5%;">
-                  <p class="fw-bold card-text mb-2">
-                    Quality Assurance
-                  </p>
-                  <h5 class="fw-bold card-title mb-3">
-                    We are committed to providing high-quality services to ensure the success of your agricultural operations.
-                  </h5>
-                  <a href="contacts.html" class="btn btn-primary btn-sm">
-                    Learn more
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
     <section class="py-5 mt-5">
       <div class="container py-5">
         <div class="row mb-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <p class="fw-bold mb-2" style="color: #fdbb2d;">Testimonials</p>
-            <h2 class="fw-bold" style="color: white;"><strong>What People Say About Us</strong></h2>
-            <p style="color: white;">
+            <p class="fw-bold mb-2" style="color: #fdbb2d">Testimonials</p>
+            <h2 class="fw-bold" style="color: white">
+              <strong>What People Say About Us</strong>
+            </h2>
+            <p style="color: white">
               No matter the project, our team can handle it.&nbsp;
             </p>
           </div>
@@ -509,7 +548,8 @@
               class="d-flex flex-column align-items-center align-items-sm-start"
             >
               <p
-                class="bg-body-tertiary border rounded border-0 border-light p-4" style="color: black;"
+                class="bg-body-tertiary border rounded border-0 border-light p-4"
+                style="color: black"
               >
                 "Blue Life Labor provided us with skilled workers who were
                 instrumental during our harvest season."
@@ -524,7 +564,7 @@
                 />
                 <div>
                   <p class="fw-bold text-primary mb-0">Mario Rodriguez</p>
-                  <p class="mb-0" style="color: white;">Vineyard Owner</p>
+                  <p class="mb-0" style="color: white">Vineyard Owner</p>
                 </div>
               </div>
             </div>
@@ -534,8 +574,9 @@
               class="d-flex flex-column align-items-center align-items-sm-start"
             >
               <p
-                class="bg-body-tertiary border rounded border-0 border-light p-4" style="color: black;"
-               >
+                class="bg-body-tertiary border rounded border-0 border-light p-4"
+                style="color: black"
+              >
                 "Thanks to Blue Life Labor, our planting was efficient and on
                 schedule. Highly recommend their services."
               </p>
@@ -549,7 +590,9 @@
                 />
                 <div>
                   <p class="fw-bold text-primary mb-0">James Peterson</p>
-                  <p class="mb-0" style="color: white;">Farm Manager, Oregon Farms</p>
+                  <p class="mb-0" style="color: white">
+                    Farm Manager, Oregon Farms
+                  </p>
                 </div>
               </div>
             </div>
@@ -559,7 +602,8 @@
               class="d-flex flex-column align-items-center align-items-sm-start"
             >
               <p
-                class="bg-body-tertiary border rounded border-0 border-light p-4" style="color: black;"
+                class="bg-body-tertiary border rounded border-0 border-light p-4"
+                style="color: black"
               >
                 "Their team was professional and dedicated. They helped improve
                 our crop yield significantly."
@@ -574,7 +618,9 @@
                 />
                 <div>
                   <p class="fw-bold text-primary mb-0">Mike Clark</p>
-                  <p class="mb-0" style="color: white;">Owner, Green Acres Farm</p>
+                  <p class="mb-0" style="color: white">
+                    Owner, Green Acres Farm
+                  </p>
                 </div>
               </div>
             </div>
@@ -586,8 +632,8 @@
       <div class="container py-5">
         <div class="row mb-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <p class="fw-bold mb-2" style="color: #fdbb2d;">Contact</p>
-            <h2 class="fw-bold" style="color: white;">How you can reach us</h2>
+            <p class="fw-bold mb-2" style="color: #fdbb2d">Contact</p>
+            <h2 class="fw-bold" style="color: white">How you can reach us</h2>
           </div>
         </div>
         <div class="row d-flex justify-content-center">
@@ -638,7 +684,7 @@
               <div
                 id="loading-indicator"
                 class="text-center mt-3"
-                style="display: none;"
+                style="display: none"
               >
                 <div class="spinner-border text-primary" role="status">
                   <span class="visually-hidden">Sending...</span>
@@ -647,19 +693,19 @@
               </div>
             </form>
           </div>
-          
         </div>
       </div>
     </section>
-
-
 
     <section class="py-5">
       <div class="container">
         <div
           class="border rounded border-0 border-white d-flex flex-column justify-content-between align-items-center flex-lg-row p-4 p-lg-5"
         >
-          <div class="text-center text-lg-start py-3 py-lg-1" style="color: white;">
+          <div
+            class="text-center text-lg-start py-3 py-lg-1"
+            style="color: white"
+          >
             <h2 class="fw-bold mb-2">Subscribe to our newsletter</h2>
             <p class="mb-0">Stay updated with the latest news and offers.</p>
           </div>
@@ -677,10 +723,13 @@
                 name="email"
                 placeholder="Your Email"
               />
-              
             </div>
             <div class="my-2">
-              <button class="btn btn-primary shadow ms-2"id="newsletter-submit-button" type="submit">
+              <button
+                class="btn btn-primary shadow ms-2"
+                id="newsletter-submit-button"
+                type="submit"
+              >
                 Subscribe
               </button>
             </div>
@@ -688,18 +737,64 @@
         </div>
       </div>
     </section>
-   
-    <footer class="text-white">
-      <div class="container-fluid py-4">
-        <div class="row">
-          <div class="">
-            <p style="color: white;">Copyright © 2024 Blue Life Contractor Corp
-            </p>
-          </div>
+
+    <footer class="bg-primary-gradient">
+      <div class="container py-4 py-lg-5">
+        <div class="row justify-content-center"></div>
+        <hr />
+        <div
+          class="text-muted d-flex justify-content-between align-items-center pt-3"
+        >
+          <p class="mb-0" style="color: white">
+            Copyright © 2024 Blue Life Labor
+          </p>
+          <!-- <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+                class="bi bi-facebook"
+              >
+                <path
+                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                ></path>
+              </svg>
+            </li>
+            <li class="list-inline-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+                class="bi bi-twitter"
+              >
+                <path
+                  d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15"
+                ></path>
+              </svg>
+            </li>
+            <li class="list-inline-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+                class="bi bi-instagram"
+              >
+                <path
+                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                ></path>
+              </svg>
+            </li>
+          </ul> -->
         </div>
       </div>
     </footer>
-    
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
@@ -709,40 +804,40 @@
     <script>
       // Number of images and base path
       const totalImages = 46; // Adjust based on the number of images
-      const basePath = 'assets/img/projects/';
+      const basePath = "assets/img/projects/";
 
       // Get carousel and thumbnail containers
-      const carouselInner = document.querySelector('.carousel-inner');
-      const thumbnailContainer = document.getElementById('carouselThumbnails');
+      const carouselInner = document.querySelector(".carousel-inner");
+      const thumbnailContainer = document.getElementById("carouselThumbnails");
 
       if (carouselInner && thumbnailContainer) {
         for (let i = 1; i <= totalImages; i++) {
           // Create carousel item
-          const carouselItem = document.createElement('div');
-          carouselItem.className = `carousel-item${i === 1 ? ' active' : ''}`; // First slide is active
+          const carouselItem = document.createElement("div");
+          carouselItem.className = `carousel-item${i === 1 ? " active" : ""}`; // First slide is active
 
-          const img = document.createElement('img');
+          const img = document.createElement("img");
           img.src = `${basePath}${i}.webp`;
-          img.className = 'd-block w-100';
+          img.className = "d-block w-100";
           img.alt = `Gallery Image ${i}`;
           carouselItem.appendChild(img);
           carouselInner.appendChild(carouselItem);
 
-          // Create thumbnail 
-          const thumbnail = document.createElement('img');
+          // Create thumbnail
+          const thumbnail = document.createElement("img");
           thumbnail.src = `${basePath}${i}.webp`;
-          thumbnail.className = 'img-thumbnail mx-2';
-          thumbnail.style.cursor = 'pointer';
-          thumbnail.style.width = '100px';
-          thumbnail.style.border = '2px solid #ccc'
+          thumbnail.className = "img-thumbnail mx-2";
+          thumbnail.style.cursor = "pointer";
+          thumbnail.style.width = "100px";
+          thumbnail.style.border = "2px solid #ccc";
           thumbnail.alt = `Thumbnail ${i}`;
-          thumbnail.setAttribute('data-bs-target', '#imageCarousel');
-          thumbnail.setAttribute('data-bs-slide-to', i - 1); // Zero-based index for slides
+          thumbnail.setAttribute("data-bs-target", "#imageCarousel");
+          thumbnail.setAttribute("data-bs-slide-to", i - 1); // Zero-based index for slides
 
           thumbnailContainer.appendChild(thumbnail);
         }
       } else {
-        console.error('Carousel or thumbnail container not found');
+        console.error("Carousel or thumbnail container not found");
       }
     </script>
 
@@ -766,11 +861,11 @@
         // Validate reCAPTCHA
         if (!formData["g-recaptcha-response"]) {
           alert("Please complete the CAPTCHA.");
-  
+
           // Hide the spinner and re-enable the button
           loadingIndicator.style.display = "none";
           submitButton.disabled = false;
-  
+
           return;
         }
         try {
@@ -782,14 +877,11 @@
             },
             body: JSON.stringify(formData),
           });
-  
+
           const result = await response.json();
           if (response.ok) {
-            alert(result.message);   
-    
-    
-    
-    
+            alert(result.message);
+
             form.reset(); // Reset form fields after successful submission
             grecaptcha.reset(); // Reset reCAPTCHA widget
           } else {
@@ -804,37 +896,37 @@
           submitButton.disabled = false;
         }
       });
-      </script>
-      
-      <!-- JS to hide logo when scrolling -->
-      <script>
-        function updateLogo() {
-          const largeLogo = document.querySelector(".large-logo");
-          const smallLogo = document.querySelector(".small-logo");
-      
-          if (window.scrollY === 0) {
-            // User is at the top of the page
-            largeLogo.classList.add('visible');
-            largeLogo.classList.remove('hidden');
-      
-            smallLogo.classList.add('hidden');
-            smallLogo.classList.remove('visible');
-          } else {
-            // User has scrolled down
-            largeLogo.classList.add('hidden');
-            largeLogo.classList.remove('visible');
-      
-            smallLogo.classList.add('visible');
-            smallLogo.classList.remove('hidden');
-          }
-        }
-      
-        document.addEventListener("scroll", updateLogo);
-        document.addEventListener("DOMContentLoaded", updateLogo);
-      </script>
+    </script>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
+    <!-- JS to hide logo when scrolling -->
+    <script>
+      function updateLogo() {
+        const largeLogo = document.querySelector(".large-logo");
+        const smallLogo = document.querySelector(".small-logo");
+
+        if (window.scrollY === 0) {
+          // User is at the top of the page
+          largeLogo.classList.add("visible");
+          largeLogo.classList.remove("hidden");
+
+          smallLogo.classList.add("hidden");
+          smallLogo.classList.remove("visible");
+        } else {
+          // User has scrolled down
+          largeLogo.classList.add("hidden");
+          largeLogo.classList.remove("visible");
+
+          smallLogo.classList.add("visible");
+          smallLogo.classList.remove("hidden");
+        }
+      }
+
+      document.addEventListener("scroll", updateLogo);
+      document.addEventListener("DOMContentLoaded", updateLogo);
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
         const images = document.querySelectorAll(".rotating-image");
         let currentIndex = 0;
 
@@ -852,64 +944,64 @@
         // Rotate every 3.5 seconds
         setInterval(rotateImages, 3500);
       });
+    </script>
 
-
-      </script>
-
-      <!-- Script to change text when on mobile -->
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
+    <!-- Script to change text when on mobile -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
         if (window.innerWidth <= 768) {
           const textElement = document.querySelector(".custom-header-text p");
           textElement.textContent = "PROFESSIONALISM PASSION PRODUCTIVITY";
-          const textElement2 = document.querySelector(".header-text")
-          textElement2.textContent = " "
+          const textElement2 = document.querySelector(".header-text");
+          textElement2.textContent = " ";
         }
       });
-      </script>
+    </script>
 
-      <!-- Script to sign up for newsletter -->
-      <script>
-        const newsletterForm = document.getElementById("newsletter-form");
-        const newsletterSubmitButton = document.getElementById(
-          "newsletter-submit-button"
-        );
+    <!-- Script to sign up for newsletter -->
+    <script>
+      const newsletterForm = document.getElementById("newsletter-form");
+      const newsletterSubmitButton = document.getElementById(
+        "newsletter-submit-button"
+      );
 
-        newsletterForm.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          // Disable the button to prevent multiple submissions
-          newsletterSubmitButton.disabled = true;
-          newsletterSubmitButton.textContent = "Subscribing...";
+      newsletterForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        // Disable the button to prevent multiple submissions
+        newsletterSubmitButton.disabled = true;
+        newsletterSubmitButton.textContent = "Subscribing...";
 
-          // Get the email input value
-          const email = document.getElementById("newsletter-email").value;
+        // Get the email input value
+        const email = document.getElementById("newsletter-email").value;
 
-          try {
-            // Send the form data to your backend
-            const response = await fetch("/.netlify/functions/subscribe-newsletter", {
+        try {
+          // Send the form data to your backend
+          const response = await fetch(
+            "/.netlify/functions/subscribe-newsletter",
+            {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({ email }),
-            });
-
-            const result = await response.json();
-            if (response.ok) {
-              alert(result.message);
-              newsletterForm.reset(); // Reset the form fields
-            } else {
-              alert("Subscription failed: " + result.message);
             }
-          } catch (error) {
-            alert("Failed to subscribe. Please try again!");
-          } finally {
-            // Re-enable the button
-            newsletterSubmitButton.disabled = false;
-            newsletterSubmitButton.textContent = "Subscribe";
-          }
-        });
-      </script>
+          );
 
+          const result = await response.json();
+          if (response.ok) {
+            alert(result.message);
+            newsletterForm.reset(); // Reset the form fields
+          } else {
+            alert("Subscription failed: " + result.message);
+          }
+        } catch (error) {
+          alert("Failed to subscribe. Please try again!");
+        } finally {
+          // Re-enable the button
+          newsletterSubmitButton.disabled = false;
+          newsletterSubmitButton.textContent = "Subscribe";
+        }
+      });
+    </script>
   </body>
 </html>
