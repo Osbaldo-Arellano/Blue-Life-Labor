@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Safety and Compliance | Blue Life Labor</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700&amp;display=swap"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        color: #fff;
+        background: linear-gradient(0deg, black, #16295e 125%);
+      }
+
+      .navbar {
+        background-color: transparent;
+      }
+      .navbar-nav .nav-link {
+        color: black !important;
+      }
+
+      .nav-link {
+        color: black !important; /* Set a distinct color for navigation links */
+      }
+
+      .custom-header-text {
+        text-align: center;
+        margin-top: 4%;
+        color: white;
+        font-family: "Oswald", sans-serif; /* Apply Oswald font */
+      }
+      .custom-header-text h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        font-weight: 1000; /* Bold weight for Oswald */
+      }
+
+      .custom-header-text p {
+        font-size: 1.5rem;
+        margin: 0 0 10px 0;
+        font-weight: 1000; /* Regular weight for Oswald */
+      }
+
+      .logo {
+        transition: opacity 0.3s ease-in-out;
+      }
+      .large-logo {
+        position: absolute;
+        top: 5px;
+        left: 20px;
+        z-index: 2;
+        height: 150px;
+        width: auto;
+        opacity: 1;
+        visibility: visible;
+      }
+      .small-logo {
+        position: static;
+        height: 50px;
+        width: auto;
+        z-index: 2;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      h3,
+      h5,
+      h6,
+      p,
+      ul li {
+        color: #fff;
+      }
+      .fw-bold {
+        font-weight: 600;
+      }
+      .text-uppercase {
+        text-transform: uppercase;
+      }
+      .card {
+        background: rgb(255, 255, 255, 0.4); /* Transparent white */
+        border: none;
+        border-radius: 0.5rem;
+      }
+      .card-body {
+        padding: 2rem;
+      }
+      .card h5,
+      .card h6 {
+        color: #fdbb2d;
+      }
+      .footer {
+        background: linear-gradient(0deg, #243f8b, black 100%);
+        color: #fff;
+      }
+      .footer hr {
+        border-top: 1px solid #fff;
+      }
+
+      .compliance-logos img {
+        max-width: 150px;
+        margin: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .compliance-logos img:hover {
+        transform: scale(1.1);
+      }
+
+      .compliance-container {
+        background: rgb(255, 255, 255, 0.4); /* Transparent white */
+        border-radius: 10px; /* Rounded corners */
+        backdrop-filter: blur(10px); /* Background blur */
+        padding: 20px; /* Spacing inside container */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); /* Subtle shadow */
+      }
+
+      .compliance-logos img {
+        max-width: 150px;
+        margin: 15px;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        filter: brightness(0.9); /* Slightly dim */
+      }
+
+      .compliance-logos img:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
+        filter: brightness(1); /* Brighten on hover */
+      }
+
+      .navbar-nav .nav-link {
+        color: black; /* Default link color */
+        text-decoration: none;
+        transition: color 0.3s ease; /* Smooth transition */
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #fdbb2d !important; /* Highlight color on hover */
+      }
+
+      .navbar-nav .nav-link.active {
+        color: #fdbb2d !important; /* Active link color */
+      }
+
+
+      @media (max-width: 768px) {
+        .compliance-logos img {
+          max-width: 100px;
+          margin: 10px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar{
+            margin-bottom: 18%;
+
+        }
+        .navbar-toggler {
+          margin-left: auto;
+        }
+        .navbar-collapse {
+          text-align: center;
+        }
+        .navbar-nav {
+          margin-left: center;
+        }
+        .infoo {
+          display: none;
+        }
+        .large-logo {
+          height: 100px;
+        }
+        .compliance-logos img {
+          max-width: 80px;
+          margin: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-md sticky-top navbar-shrink py-3"
+      id="mainNav"
+    >
+      <div class="container">
+        <!-- Logo Section -->
+        <a href="/" class="d-flex align-items-center">
+          <img
+            src="assets/img/brands/Blue_Life_Labor_LOGO-removebg-preview.png"
+            alt="Small Blue Life Logo"
+            class="logo small-logo hidden"
+          />
+          <img
+            src="assets/img/brands/Blue_Life_Labor_LOGO-removebg-preview.png"
+            alt="Blue Life Labor Logo"
+            class="logo large-logo visible"
+          />
+        </a>
+
+        <!-- Navbar Toggler (for mobile) -->
+        <button
+          data-bs-toggle="collapse"
+          class="navbar-toggler"
+          data-bs-target="#navcol-1"
+        >
+          <span class="visually-hidden">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="navbar-nav ms-0">
+            <!-- Changed from mx-auto to ms-0 -->
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="services.html"
+                >Safety and Compliance</a
+              >
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about-us.html"
+                  >About Us</a
+                >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+     <header>
+        <div class="custom-header-text">
+            <p class="fw-bold mb-2" style="color: #fdbb2d">
+                            SAFETY & COMPLIANCE
+            </p>
+            <h1 class="header-text">
+                Our Commitment
+          </div>
+     </header>
+    <section class="py-5">
+      <div class="container py-5">
+        <!-- Safety Card -->
+        <div class="row mb-4">
+          <div class="col-md-10 col-lg-8 mx-auto">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="fw-bold">Safety</h5>
+                <p>
+                  At Blue Life Labor, our steadfast commitment to employee
+                  safety is fundamental. We prioritize the health, well-being,
+                  and security of our team in every aspect of operations. Our
+                  business is fully committed to ensuring the safety and
+                  well-being of our employees through education and training on
+                  workplace safety. We ensure our employees are regularly
+                  updated on best practices and protocols to maintain a secure
+                  and informed work environment.
+                </p>
+                <p>We provide training on the following safety protocols to ensure a secure and compliant workplace.</p>
+                <h6 class="fw-bold mt-4">Our Safety Protocols:</h6>
+                <ul>
+                  <li>Ag WorkSafe</li>
+                  <li>Ergonomics</li>
+                  <li>Pesticide & Chemical handling</li>
+                  <li>Emergency First Aid</li>
+                  <li>Field Sanitation</li>
+                  <li>Cold Stress/Heat Safety</li>
+                  <li>Proper Use of Tools and Equipment</li>
+                  <li>Personal Protections Equipment and more</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Compliance Card -->
+        <div class="row mb-5">
+            <div class="col-md-10 col-lg-8 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                <h5 class="fw-bold">Compliance</h5>
+                <p>
+                    Blue Life Labor is committed to maintaining full compliance with all
+                    state and federal laws and regulations, ensuring we uphold our
+                    reputation for integrity and responsibility. Our operations are
+                    transparent, ensuring clear communication and accountability at every
+                    level.
+                </p>
+                <h6 class="fw-bold mt-4">We comply with:</h6>
+                <ul>
+                    <li>U.S. Department of Labor</li>
+                    <li>Oregon Bureau of Labor & Industries</li>
+                    <li>U.S. Department of Agriculture (USDA)</li>
+                    <li>Occupational Safety and Health Administration (OSHA)</li>
+                    <li>SAIF Corporation</li>
+                </ul>
+                </div>
+                <div class="compliance-logos text-center mt-4">
+                <img src="/assets/img/safety/agri.png" alt="Department of Labor" />
+                <img
+                    src="assets/img/safety/healthcare-removebg-preview.png"
+                    alt="Healthcare"
+                />
+                <img
+                    src="assets/img/safety/IRS-Logo-842359496-removebg-preview.png"
+                    alt="IRS"
+                />
+                <img
+                    src="assets/img/safety/labor-removebg-preview.png"
+                    alt="Labor"
+                />
+                <img src="assets/img/safety/osha-removebg-preview.png" alt="OSHA" />
+                <img
+                    src="/assets/img/safety/oregonsaves-removebg-preview.png"
+                    alt="Oregon Saves"
+                />
+                <img src="assets/img/safety/saif-logo.png" alt="SAIF Corporation" />
+                <img
+                    src="assets/img/safety/State+of+Oregon+Employment+Dept-2317714164-removebg-preview.png"
+                    alt="State of Oregon Employment"
+                />
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container py-4 py-lg-5">
+        <hr />
+        <div
+          class="text-muted d-flex justify-content-between align-items-center pt-3"
+        >
+          <p class="mb-0">© 2024 Blue Life Labor Contractor Corp</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/bold-and-bright.js"></script>
+    <!-- JS to hide logo when scrolling -->
+    <script>
+      function updateLogo() {
+        const largeLogo = document.querySelector(".large-logo");
+        const smallLogo = document.querySelector(".small-logo");
+
+        if (window.scrollY === 0) {
+          // User is at the top of the page
+          largeLogo.classList.add("visible");
+          largeLogo.classList.remove("hidden");
+
+          smallLogo.classList.add("hidden");
+          smallLogo.classList.remove("visible");
+        } else {
+          // User has scrolled down
+          largeLogo.classList.add("hidden");
+          largeLogo.classList.remove("visible");
+
+          smallLogo.classList.add("visible");
+          smallLogo.classList.remove("hidden");
+        }
+      }
+
+      document.addEventListener("scroll", updateLogo);
+      document.addEventListener("DOMContentLoaded", updateLogo);
+    </script>
+  </body>
+</html>

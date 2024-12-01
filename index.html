@@ -73,7 +73,7 @@
       }
 
       .bg-primary-gradient-2 {
-        background: linear-gradient(0deg, #060b19, #243f8b 150%);
+        background: linear-gradient(0deg, #050a16, #243f8b 150%);
         color: white;
       }
 
@@ -213,6 +213,20 @@
         color: white; /* Ensure text stands out */
       }
 
+      .navbar-nav .nav-link {
+        color: black; /* Default link color */
+        text-decoration: none;
+        transition: color 0.3s ease; /* Smooth transition */
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #fdbb2d !important; /* Highlight color on hover */
+      }
+
+      .navbar-nav .nav-link.active {
+        color: #fdbb2d !important; /* Active link color */
+      }
+
       /* Target mobile devices */
       @media (max-width: 768px) {
         .navbar {
@@ -288,6 +302,12 @@
               <a class="nav-link" href="services.html" style="color: black"
                 >Services</a
               >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="safety.html">Safety and Compliance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about-us.html">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contacts.html" style="color: black"
@@ -464,11 +484,11 @@
                   <p class="text-muted card-text mb-4">
                     Our skilled workforce ensures efficient and timely
                     harvesting of a variety of crops, minimizing loss and
-                    maximizing yield.
+                    maximizing yield for every season.
                   </p>
                   <a
                     class="btn btn-primary shadow"
-                    href="contacts.html?service=Harvesting%20Services"
+                    href="contacts.html?service=Purning%20Services"
                   >
                     Learn more
                   </a>
@@ -513,6 +533,45 @@
                 </div>
               </div>
             </div>
+            <div class="col mb-4">
+              <div class="card shadow-sm">
+                <div class="card-body px-4 py-5 px-md-5">
+                  <h5 class="fw-bold card-title">Plant & Tree Nurseries</h5>
+                  <p class="text-muted card-text mb-4">
+                    Our team has experience working with plant and tree
+                    nurseries. We will work together to fulfill our clients
+                    needs in all phases of the nursery process.
+                  </p>
+                  <a
+                    class="btn btn-primary shadow"
+                    href="contacts.html?service=Plant%20%26%20Tree%20Nurseries"
+                  >
+                    Learn more
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col mb-4">
+              <div class="card shadow-sm">
+                <div class="card-body px-4 py-5 px-md-5">
+                  <h5 class="fw-bold card-title">
+                    Irrigation Installation & Maintenance
+                  </h5>
+                  <p class="text-muted card-text mb-4">
+                    We provide installation and maintenance of irrigation
+                    systems to optimize water usage and improve crop production.
+                  </p>
+                  <a
+                    class="btn btn-primary shadow"
+                    href="contacts.html?service=Irrigation%20Installation%20%26%20Maintenance"
+                  >
+                    Learn more
+                  </a>
+                </div>
+              </div>
+            </div>
+
             <div class="col mb-4">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">

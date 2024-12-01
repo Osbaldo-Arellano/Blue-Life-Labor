@@ -87,12 +87,45 @@
         visibility: visible;
       }
 
+      .navbar-nav .nav-link {
+        color: black; /* Default link color */
+        text-decoration: none;
+        transition: color 0.3s ease; /* Smooth transition */
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #fdbb2d !important; /* Highlight color on hover */
+      }
+
+      .navbar-nav .nav-link.active {
+        color: #fdbb2d !important; /* Active link color */
+      }
+
+      .custom-header-text {
+        text-align: center;
+        margin-top: 4%;
+        color: white;
+        font-family: "Oswald", sans-serif; /* Apply Oswald font */
+      }
+      .custom-header-text h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        font-weight: 1000; /* Bold weight for Oswald */
+      }
+
+      .custom-header-text p {
+        font-size: 1.5rem;
+        margin: 0 0 10px 0;
+        font-weight: 1000; /* Regular weight for Oswald */
+      }
+
       /* Target mobile devices */
       @media (max-width: 768px) {
         .navbar {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          margin-bottom: 18%;
         }
 
         .navbar-toggler {
@@ -149,28 +182,45 @@
           <ul class="navbar-nav ms-0">
             <!-- Changed from mx-auto to ms-0 -->
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.html" style="color: black"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="services.html">Services</a>
+              <a
+                class="nav-link active"
+                href="services.html"
+                style="color: black"
+                >Services</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contacts.html">Contact</a>
+              <a class="nav-link" href="safety.html">Safety and Compliance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about-us.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html" style="color: black"
+                >Contact</a
+              >
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
+    <header>
+      <div class="custom-header-text">
+        <p class="fw-bold mb-2" style="color: #fdbb2d">
+        OUR SERVICES
+        </p>
+        <h1 class="header-text">
+        What we can do for you        
+      </div>
+   </header>
     <section class="py-5">
       <div class="container py-5">
-        <div class="row mb-4 mb-lg-5">
-          <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <p class="fw-bold s mb-2" id="our-services" style="color: #fdbb2d">
-              Our Services
-            </p>
-            <h3 class="fw-bold">What we can do for you</h3>
-          </div>
-        </div>
         <div
           class="row row-cols-1 row-cols-md-2 mx-auto"
           style="max-width: 900px"
@@ -213,7 +263,7 @@
             class="col d-md-flex align-items-md-end align-items-lg-center mb-5"
           >
             <div>
-              <h5 class="fw-bold">Expert Pruning Services&nbsp;</h5>
+              <h5 class="fw-bold">Pruning Services&nbsp;</h5>
               <p class="text-muted mb-4">
                 Let us provide you with our talented pruning workforce. We will
                 work together to tailor a pruning style for each crop to
