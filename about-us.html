@@ -228,6 +228,38 @@
           margin: 0.5rem;
         }
       }
+      @media (max-width: 768px) {
+      .profile-img-container {
+        margin-bottom: 20px; /* Add spacing below the image */
+      }
+
+      .mobile-profile {
+        display: block !important; /* Ensure it displays on mobile */
+        text-align: center; /* Center align */
+        margin: 0 auto; /* Center horizontally */
+      }
+
+      .desktop-profile {
+        display: none !important; /* Hide the desktop version on mobile */
+      }
+
+      .profile-img {
+        margin: 0 auto; /* Center the image */
+        max-width: 200px; /* Adjust size for mobile */
+        display: inline-block; /* Prevent stretching */
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-profile {
+        display: none !important; /* Hide the mobile version on desktop */
+      }
+
+      .desktop-profile {
+        display: block !important; /* Ensure it displays on desktop */
+      }
+}
+
     </style>
   </head>
   <body>
@@ -299,13 +331,24 @@
                 <h1 class="header-text">
                     PROFESSIONALISM • PASSION • PRODUCTIVITY
               </div>
-         </header>
-      
+         </header>    
         <!-- Main Content -->
         <div class="content-wrapper">
           <section class="py-5">
             <div class="container py-5">
               <div class="row">
+                 <!-- Profile Image for Mobile -->
+              <div class="col-md-4 text-center mobile-profile">
+                <div class="profile-img-container">
+                  <img
+                    src="assets/img/team/image copy.png"
+                    alt="Jonathan Castillo"
+                    class="profile-img"
+                  />
+                </div>
+                <p class="fw-bold mb-0">Jonathan Castillo</p>
+                <p>President</p>
+              </div>
                 <!-- About Us Text -->
                 <div class="col-md-8">
                   <div class="about-section">
@@ -347,20 +390,18 @@
                     </ul>
                   </div>
                 </div>
-      
-                <!-- Profile Image -->
-                <div class="col-md-4 text-center">
-                    <div class="profile-img-container">
+              <!-- Profile Image for Desktop -->
+              <div class="col-md-4 text-center desktop-profile">
+                <div class="profile-img-container">
                     <img
-                        src="assets/img/team/image copy.png"
-                        alt="Jonathan Castillo"
-                        class="profile-img"
+                      src="assets/img/team/image copy.png"
+                      alt="Jonathan Castillo"
+                      class="profile-img"
                     />
-                    </div>
-                    <p class="fw-bold mb-0">Jonathan Castillo</p>
-                    <p>President</p>
+                  </div>
+                  <p class="fw-bold mb-0">Jonathan Castillo</p>
+                  <p>President</p>
                 </div>
-  
               </div>
             </div>
           </section>
