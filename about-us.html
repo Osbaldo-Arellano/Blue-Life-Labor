@@ -20,11 +20,15 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700&amp;display=swap"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    
-<!-- Bootstrap JS -->
-<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <style>
       body {
@@ -36,19 +40,57 @@
         color: #fff;
         background: linear-gradient(0deg, black, #16295e 125%);
       }
+
+      /* Prevent header content from hiding under the navbar */
+      header {
+        padding-top: 80px; /* Matches navbar height */
+        background-color: #16295e; /* Set your desired background color */
+        color: white;
+      }
+
+      #mainNav {
+        position: fixed; /* Keeps the navbar at the top */
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width */
+        height: 10%; /* Adjust height as needed */
+        background: linear-gradient(
+          to bottom,
+          rgba(14, 25, 56, 0.9),
+          rgba(14, 25, 56, 0)
+        ); /* Gradient with transparency */
+        z-index: 1000; /* Stacks above other elements */
+        border: none; /* Removes any border */
+        transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+      }
+
+      #mainNav:hover {
+        background: linear-gradient(
+          to bottom,
+          rgba(14, 25, 56, 1),
+          rgba(14, 25, 56, 0.5)
+        ); /* More opaque on hover */
+        backdrop-filter: blur(10px); /* Adds a blur effect */
+      }
+
       .content-wrapper {
         flex: 1; /* Pushes the footer to the bottom when there isn't enough content */
       }
 
-      .navbar {
-        background-color: transparent;
-      }
       .navbar-nav .nav-link {
-        color: black !important;
+        color: rgb(165, 163, 163) !important; /* Default link color */
+        text-decoration: none; /* No underline by default */
+        transition: color 0.3s ease; /* Smooth transition */
+        font-family: "Oswald", sans-serif; /* Apply Oswald font */
+        font-weight: bold; /* Make the text more bold */
       }
 
-      .nav-link {
-        color: black !important; /* Set a distinct color for navigation links */
+      .navbar-nav .nav-link:hover {
+        color: #fdbb2d !important; /* Highlight color on hover */
+        text-decoration: underline; /* Add underline on hover */
+      }
+      .navbar-nav .nav-link.active {
+        color: #fdbb2d !important; /* Active link color */
       }
 
       .custom-header-text {
@@ -56,6 +98,7 @@
         margin-top: 4%;
         color: white;
         font-family: "Oswald", sans-serif; /* Apply Oswald font */
+        margin-top: 6%;
       }
       .custom-header-text h1 {
         font-size: 2rem;
@@ -93,17 +136,20 @@
 
       .profile-img-container {
         display: inline-block; /* Center container around the image */
-        background: linear-gradient(45deg, #fdbb2d, #243f8b); /* Gradient colors */
+        background: linear-gradient(
+          45deg,
+          #fdbb2d,
+          #243f8b
+        ); /* Gradient colors */
         padding: 2.5px; /* Border thickness */
-        }
+      }
 
-        .profile-img {
+      .profile-img {
         display: block;
         width: 100%; /* Ensure it fits inside the parent */
         height: auto; /* Maintain aspect ratio */
         background-color: #fff; /* Optional: to avoid transparency issues */
-        }
-
+      }
 
       .hidden {
         opacity: 0;
@@ -200,7 +246,6 @@
         color: #fdbb2d !important; /* Active link color */
       }
 
-
       @media (max-width: 768px) {
         .compliance-logos img {
           max-width: 100px;
@@ -209,248 +254,294 @@
       }
 
       @media (max-width: 768px) {
-        .navbar{
-            margin-bottom: 18%;
+        .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
 
-        }
         .navbar-toggler {
-          margin-left: auto;
+          margin-left: auto; /* Push the toggle button to the far right */
+          z-index: 1001; /* Ensure it is above the collapse menu */
         }
+
         .navbar-collapse {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh; /* Full viewport height */
+          background: linear-gradient(
+            to bottom,
+            rgba(14, 25, 56, 0.9),
+            rgba(14, 25, 56, 0.5)
+          ); /* Gradient for mobile menu */
           text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          opacity: 0; /* Initially hidden */
+          visibility: hidden; /* Prevent interaction */
+          transform: translateY(-100%); /* Slide out of view */
+          transition: opacity 0.1s ease, transform 0.5s ease,
+            visibility 0.5s ease;
+          z-index: 1000;
+          backdrop-filter: blur(10px); /* Adds a blur effect */
         }
+
+        .navbar-collapse.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0); /* Slide into view */
+        }
+
         .navbar-nav {
-          margin-left: center;
+          margin: 0;
+          padding: 0;
+          list-style: none;
         }
+
+        .navbar-nav .nav-item {
+          margin: 1rem 0;
+        }
+
+        .navbar-nav .nav-link {
+          font-size: 1.5rem;
+          color: white;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+          color: #fdbb2d; /* Highlight color on hover */
+        }
+
+        .navbar-toggler-icon {
+          background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="white" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+        }
+
         .infoo {
           display: none;
         }
-        .large-logo {
-          height: 100px;
+
+        .custom-header-text {
+          margin-top: 20%;
         }
-        .compliance-logos img {
-          max-width: 80px;
-          margin: 0.5rem;
+
+        #logo-container {
+          z-index: 2000;
         }
       }
       @media (max-width: 768px) {
-      .profile-img-container {
-        margin-bottom: 20px; /* Add spacing below the image */
+        .profile-img-container {
+          margin-bottom: 20px; /* Add spacing below the image */
+        }
+
+        .mobile-profile {
+          display: block !important; /* Ensure it displays on mobile */
+          text-align: center; /* Center align */
+          margin: 0 auto; /* Center horizontally */
+        }
+
+        .desktop-profile {
+          display: none !important; /* Hide the desktop version on mobile */
+        }
+
+        .profile-img {
+          margin: 0 auto; /* Center the image */
+          max-width: 450px; /* Adjust size for mobile */
+          display: inline-block; /* Prevent stretching */
+        }
       }
 
-      .mobile-profile {
-        display: block !important; /* Ensure it displays on mobile */
-        text-align: center; /* Center align */
-        margin: 0 auto; /* Center horizontally */
-      }
+      @media (min-width: 769px) {
+        .mobile-profile {
+          display: none !important; /* Hide the mobile version on desktop */
+        }
 
-      .desktop-profile {
-        display: none !important; /* Hide the desktop version on mobile */
+        .desktop-profile {
+          display: block !important; /* Ensure it displays on desktop */
+        }
       }
-
-      .profile-img {
-        margin: 0 auto; /* Center the image */
-        max-width: 450px; /* Adjust size for mobile */
-        display: inline-block; /* Prevent stretching */
-      }
-    }
-
-    @media (min-width: 769px) {
-      .mobile-profile {
-        display: none !important; /* Hide the mobile version on desktop */
-      }
-
-      .desktop-profile {
-        display: block !important; /* Ensure it displays on desktop */
-      }
-}
-
     </style>
   </head>
   <body>
-        <!-- Navbar -->
-        <nav
-          class="navbar navbar-expand-md sticky-top navbar-shrink py-3"
-          id="mainNav"
-        >
-          <div class="container">
-            <!-- Logo Section -->
-            <a href="/" class="d-flex align-items-center">
-              <img
-                src="assets/img/brands/Blue_Life_Labor_LOGO-removebg-preview.png"
-                alt="Small Blue Life Logo"
-                class="logo small-logo hidden"
-              />
-              <img
-                src="assets/img/brands/Blue_Life_Labor_LOGO-removebg-preview.png"
-                alt="Blue Life Labor Logo"
-                class="logo large-logo visible"
-              />
-            </a>
-      
-            <!-- Navbar Toggler (for mobile) -->
-            <button
-                data-bs-toggle="collapse"
-                class="navbar-toggler"
-                data-bs-target="#navcol-1"
-            >
-                <span class="visually-hidden">Toggle navigation</span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-expand-md sticky-top py-3" id="mainNav">
+      <div class="container">
+        <!-- Logo Section -->
+        <a href="/" class="d-flex align-items-center" id="logo-container">
+          <img
+            src="assets/img/brands/Blue_Life_Labor_LOGO-removebg-preview.png"
+            alt="Small Blue Life Logo"
+            class="logo small-logo hidden"
+          />
+          <img
+            src="assets/img/brands/Blue_Life_Labor_LOGO-removebg-preview.png"
+            alt="Blue Life Labor Logo"
+            class="logo large-logo visible"
+          />
+        </a>
 
-            <!-- Navigation Links -->
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ms-0">
-                    <!-- Changed from mx-auto to ms-0 -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html" style="color: black"
-                        >Home</a
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services.html" style="color: black"
-                        >Services</a
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="safety.html">Safety and Compliance</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="about-us.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacts.html" style="color: black"
-                        >Contact</a
-                        >
-                    </li>
-                </ul>
-            </div>
-            </div>
-          </div>
-        </nav>
-        <header>
-            <div class="custom-header-text">
-                <p class="fw-bold mb-2" style="color: #fdbb2d">
-                                ABOUT US
-                </p>
-                <h1 class="header-text">
-                    PROFESSIONALISM • PASSION • PRODUCTIVITY
-              </div>
-         </header>    
-        <!-- Main Content -->
-        <div class="content-wrapper">
-          <section class="py-5">
-            <div class="container py-5">
-              <div class="row">
-                 <!-- Profile Image for Mobile -->
-              <div class="col-md-4 text-center mobile-profile">
-                <div class="profile-img-container">
-                  <img
-                    src="assets/img/team/image copy.png"
-                    alt="Jonathan Castillo"
-                    class="profile-img"
-                  />
-                </div>
-                <p class="fw-bold mb-0">Jonathan Castillo</p>
-                <p>President</p>
-              </div>
-                <!-- About Us Text -->
-                <div class="col-md-8">
-                  <div class="about-section">
-                    <h5 class="fw-bold">About Us:</h5>
-                    <p>
-                      Blue Life Labor Contractor Corp was founded by Jonathan Castillo
-                      in 2022, working alongside his lead foreman Benjamin Santiago
-                      representing the union between farming and finance. Deeply
-                      rooted in the agriculture industry of the Pacific Northwest,
-                      Benjamin developed his expertise over a 20-year career as
-                      agricultural foreman at E&S Farms in Woodburn, Oregon. Jonathan
-                      earned his bachelor's degree in Finance at Oregon State
-                      University, specializing in business operations. Together, with
-                      our combined on-the-fields experience and financial and legal
-                      expertise, Blue Life Labor delivers safe and high-quality labor
-                      that growers can depend on.
-                    </p>
-                    <p>
-                      Here at Blue Life Labor, we strive to provide the finest farm
-                      labor to deliver the finest results. Alongside the exceptional
-                      farm labor that we provide, we also guarantee meticulous and
-                      compliant record-keeping, ensuring that all documentation meets
-                      regulatory standards and is accurately maintained for
-                      transparency and accountability. We take pride in the high level
-                      of professionalism maintained by our back office, ensuring that
-                      every aspect of our operations is handled with precision,
-                      integrity, and expertise. All of our payroll and bookkeeping
-                      processes are handled in-house, allowing us to provide fast and
-                      accurate reporting, ensuring timely and efficient financial
-                      management. This allows us to instantly deliver real-time
-                      information right to your hands whenever you need it.
-                    </p>
-                    <h6 class="fw-bold mt-4">Active Licenses and Insurance:</h6>
-                    <ul>
-                      <li>State and Federal Farm Labor Contractors License’s</li>
-                      <li>General Liability Insurance</li>
-                      <li>Workers Compensation</li>
-                      <li>Bonded</li>
-                    </ul>
-                  </div>
-                </div>
-              <!-- Profile Image for Desktop -->
-              <div class="col-md-4 text-center desktop-profile">
-                <div class="profile-img-container">
-                    <img
-                      src="assets/img/team/image copy.png"
-                      alt="Jonathan Castillo"
-                      class="profile-img"
-                    />
-                  </div>
-                  <p class="fw-bold mb-0">Jonathan Castillo</p>
-                  <p>President</p>
-                </div>
-              </div>
-            </div>
-          </section>
+        <!-- Navbar Toggler (for mobile) -->
+        <button
+          data-bs-toggle="collapse"
+          class="navbar-toggler"
+          data-bs-target="#navcol-1"
+        >
+          <span class="visually-hidden">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="navbar-nav ms-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="safety.html">Safety and Compliance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about-us.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Contact</a>
+            </li>
+          </ul>
         </div>
-      
-        <!-- Footer -->
-        <footer class="footer">
-          <div class="container py-4 py-lg-5">
-            <hr />
-            <div
-              class="text-muted d-flex justify-content-between align-items-center pt-3"
-            >
-              <p class="mb-0">© 2024 Blue Life Labor Contractor Corp</p>
+      </div>
+    </nav>
+    <header
+      style="
+        background-image: url(assets/img/projects/55.JPG);
+        background-size: cover;
+        background-position: center;
+        height: 49vh; /* Full viewport height */
+      "
+    >
+      <div class="custom-header-text">
+        <p class="fw-bold mb-2" style="color: #fdbb2d">ABOUT US</p>
+        <h1 class="header-text">PROFESSIONALISM • PASSION • PRODUCTIVITY</h1>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <div class="content-wrapper">
+      <section class="py-5">
+        <div class="container py-5">
+          <div class="row">
+            <!-- Profile Image for Mobile -->
+            <div class="col-md-4 text-center mobile-profile">
+              <div class="profile-img-container">
+                <img
+                  src="assets/img/team/image copy.png"
+                  alt="Jonathan Castillo"
+                  class="profile-img"
+                />
+              </div>
+              <p class="fw-bold mb-0">Jonathan Castillo</p>
+              <p>President</p>
+            </div>
+            <!-- About Us Text -->
+            <div class="col-md-8">
+              <div class="about-section">
+                <h5 class="fw-bold">About Us:</h5>
+                <p>
+                  Blue Life Labor Contractor Corp was founded by Jonathan
+                  Castillo in 2022, working alongside his lead foreman Benjamin
+                  Santiago representing the union between farming and finance.
+                  Deeply rooted in the agriculture industry of the Pacific
+                  Northwest, Benjamin developed his expertise over a 20-year
+                  career as agricultural foreman at E&S Farms in Woodburn,
+                  Oregon. Jonathan earned his bachelor's degree in Finance at
+                  Oregon State University, specializing in business operations.
+                  Together, with our combined on-the-fields experience and
+                  financial and legal expertise, Blue Life Labor delivers safe
+                  and high-quality labor that growers can depend on.
+                </p>
+                <p>
+                  Here at Blue Life Labor, we strive to provide the finest farm
+                  labor to deliver the finest results. Alongside the exceptional
+                  farm labor that we provide, we also guarantee meticulous and
+                  compliant record-keeping, ensuring that all documentation
+                  meets regulatory standards and is accurately maintained for
+                  transparency and accountability. We take pride in the high
+                  level of professionalism maintained by our back office,
+                  ensuring that every aspect of our operations is handled with
+                  precision, integrity, and expertise. All of our payroll and
+                  bookkeeping processes are handled in-house, allowing us to
+                  provide fast and accurate reporting, ensuring timely and
+                  efficient financial management. This allows us to instantly
+                  deliver real-time information right to your hands whenever you
+                  need it.
+                </p>
+                <h6 class="fw-bold mt-4">Active Licenses and Insurance:</h6>
+                <ul>
+                  <li>State and Federal Farm Labor Contractors License’s</li>
+                  <li>General Liability Insurance</li>
+                  <li>Workers Compensation</li>
+                  <li>Bonded</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Profile Image for Desktop -->
+            <div class="col-md-4 text-center desktop-profile">
+              <div class="profile-img-container">
+                <img
+                  src="assets/img/team/image copy.png"
+                  alt="Jonathan Castillo"
+                  class="profile-img"
+                />
+              </div>
+              <p class="fw-bold mb-0">Jonathan Castillo</p>
+              <p>President</p>
             </div>
           </div>
-        </footer>
-      
-        <!-- Bootstrap JS -->
-        <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/bs-init.js"></script>
-        <script src="assets/js/bold-and-bright.js"></script>
-        <!-- JS to hide logo when scrolling -->
-        <script>
-          function updateLogo() {
-            const largeLogo = document.querySelector(".large-logo");
-            const smallLogo = document.querySelector(".small-logo");
-      
-            if (window.scrollY === 0) {
-              largeLogo.classList.add("visible");
-              largeLogo.classList.remove("hidden");
-              smallLogo.classList.add("hidden");
-              smallLogo.classList.remove("visible");
-            } else {
-              largeLogo.classList.add("hidden");
-              largeLogo.classList.remove("visible");
-              smallLogo.classList.add("visible");
-              smallLogo.classList.remove("hidden");
-            }
-          }
-      
-          document.addEventListener("scroll", updateLogo);
-          document.addEventListener("DOMContentLoaded", updateLogo);
-        </script>
-      </body>
-      
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container py-4 py-lg-5">
+        <hr />
+        <div
+          class="text-muted d-flex justify-content-between align-items-center pt-3"
+        >
+          <p class="mb-0">© 2024 Blue Life Labor Contractor Corp</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/bold-and-bright.js"></script>
+    <!-- JS to hide logo when scrolling -->
+    <script>
+      function updateLogo() {
+        const largeLogo = document.querySelector(".large-logo");
+        const smallLogo = document.querySelector(".small-logo");
+
+        if (window.scrollY === 0) {
+          largeLogo.classList.add("visible");
+          largeLogo.classList.remove("hidden");
+          smallLogo.classList.add("hidden");
+          smallLogo.classList.remove("visible");
+        } else {
+          largeLogo.classList.add("hidden");
+          largeLogo.classList.remove("visible");
+          smallLogo.classList.add("visible");
+          smallLogo.classList.remove("hidden");
+        }
+      }
+
+      document.addEventListener("scroll", updateLogo);
+      document.addEventListener("DOMContentLoaded", updateLogo);
+    </script>
+  </body>
 </html>

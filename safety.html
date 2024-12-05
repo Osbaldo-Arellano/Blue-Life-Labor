@@ -20,6 +20,14 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700&amp;display=swap"
     />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
 
@@ -30,15 +38,52 @@
         background: linear-gradient(0deg, black, #16295e 125%);
       }
 
-      .navbar {
-        background-color: transparent;
-      }
-      .navbar-nav .nav-link {
-        color: black !important;
+      /* Prevent header content from hiding under the navbar */
+      header {
+        padding-top: 80px; /* Matches navbar height */
+        background-color: #16295e; /* Set your desired background color */
+        color: white;
       }
 
-      .nav-link {
-        color: black !important; /* Set a distinct color for navigation links */
+      #mainNav {
+        position: fixed; /* Keeps the navbar at the top */
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width */
+        height: 10%; /* Adjust height as needed */
+        background: linear-gradient(
+          to bottom,
+          rgba(14, 25, 56, 0.9),
+          rgba(14, 25, 56, 0)
+        ); /* Gradient with transparency */
+        z-index: 1000; /* Stacks above other elements */
+        border: none; /* Removes any border */
+        transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+      }
+
+      #mainNav:hover {
+        background: linear-gradient(
+          to bottom,
+          rgba(14, 25, 56, 1),
+          rgba(14, 25, 56, 0.5)
+        ); /* More opaque on hover */
+        backdrop-filter: blur(10px); /* Adds a blur effect */
+      }
+
+      .navbar-nav .nav-link {
+        color: rgb(165, 163, 163) !important; /* Default link color */
+        text-decoration: none; /* No underline by default */
+        transition: color 0.3s ease; /* Smooth transition */
+        font-family: "Oswald", sans-serif; /* Apply Oswald font */
+        font-weight: bold; /* Make the text more bold */
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #fdbb2d !important; /* Highlight color on hover */
+        text-decoration: underline; /* Add underline on hover */
+      }
+      .navbar-nav .nav-link.active {
+        color: #fdbb2d !important; /* Active link color */
       }
 
       .custom-header-text {
@@ -46,6 +91,7 @@
         margin-top: 4%;
         color: white;
         font-family: "Oswald", sans-serif; /* Apply Oswald font */
+        margin-top: 6%;
       }
       .custom-header-text h1 {
         font-size: 2.5rem;
@@ -174,41 +220,93 @@
       }
 
       @media (max-width: 768px) {
-        .navbar{
-            margin-bottom: 18%;
 
+        .custom-header-text {
+          margin-top: 20%;
         }
+        .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
         .navbar-toggler {
-          margin-left: auto;
+          margin-left: auto; /* Push the toggle button to the far right */
+          z-index: 1001; /* Ensure it is above the collapse menu */
         }
+
         .navbar-collapse {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh; /* Full viewport height */
+          background: linear-gradient(
+            to bottom,
+            rgba(14, 25, 56, 0.9),
+            rgba(14, 25, 56, 0.5)
+          ); /* Gradient for mobile menu */
           text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          opacity: 0; /* Initially hidden */
+          visibility: hidden; /* Prevent interaction */
+          transform: translateY(-100%); /* Slide out of view */
+          transition: opacity 0.1s ease, transform 0.5s ease,
+            visibility 0.5s ease;
+          z-index: 1000;
+          backdrop-filter: blur(10px); /* Adds a blur effect */
         }
+
+        .navbar-collapse.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0); /* Slide into view */
+        }
+
         .navbar-nav {
-          margin-left: center;
+          margin: 0;
+          padding: 0;
+          list-style: none;
         }
+
+        .navbar-nav .nav-item {
+          margin: 1rem 0;
+        }
+
+        .navbar-nav .nav-link {
+          font-size: 1.5rem;
+          color: white;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+          color: #fdbb2d; /* Highlight color on hover */
+        }
+
+        .navbar-toggler-icon {
+          background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="white" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+        }
+
         .infoo {
           display: none;
         }
-        .large-logo {
-          height: 100px;
-        }
-        .compliance-logos img {
-          max-width: 80px;
-          margin: 0.5rem;
+
+        #logo-container {
+          z-index: 2000;
         }
       }
     </style>
   </head>
   <body>
     <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand-md sticky-top navbar-shrink py-3"
-      id="mainNav"
-    >
+    <nav class="navbar navbar-expand-md sticky-top py-3" id="mainNav">
       <div class="container">
         <!-- Logo Section -->
-        <a href="/" class="d-flex align-items-center">
+        <a href="/" class="d-flex align-items-center" id="logo-container">
           <img
             src="assets/img/brands/Blue_Life_Labor_LOGO-removebg-preview.png"
             alt="Small Blue Life Logo"
@@ -234,7 +332,6 @@
         <!-- Navigation Links -->
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav ms-0">
-            <!-- Changed from mx-auto to ms-0 -->
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
@@ -242,14 +339,10 @@
               <a class="nav-link" href="services.html">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="services.html"
-                >Safety and Compliance</a
-              >
+              <a class="nav-link active" href="safety.html">Safety and Compliance</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about-us.html"
-                  >About Us</a
-                >
+              <a class="nav-link" href="about-us.html">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contacts.html">Contact</a>
@@ -259,15 +352,19 @@
       </div>
     </nav>
     <!-- Main Content -->
-     <header>
-        <div class="custom-header-text">
-            <p class="fw-bold mb-2" style="color: #fdbb2d">
-                            SAFETY & COMPLIANCE
-            </p>
-            <h1 class="header-text">
-                Our Commitment
-          </div>
-     </header>
+    <header
+    style="
+      background-image: url(assets/img/projects/55.JPG);
+      background-size: cover;
+      background-position: center;
+      height: 49vh; /* Full viewport height */
+    "
+  >
+    <div class="custom-header-text">
+      <p class="fw-bold mb-2" style="color: #fdbb2d"> SAFETY & COMPLIANCE </p>
+      <h1 class="header-text">Our Commitment</h1>
+    </div>
+  </header>
     <section class="py-5">
       <div class="container py-5">
         <!-- Safety Card -->
