@@ -2,6 +2,55 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Remove default button outline on focus */
+.custom-toggler {
+  border: none;
+  outline: none; /* Remove focus outline */
+  background: transparent;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Ensure no focus outline is applied when clicked */
+.custom-toggler:focus {
+  outline: none;
+  box-shadow: none; /* Remove any focus shadow */
+}
+
+/* Style the lines */
+.custom-toggler .line {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #fdbb2d; /* Line color */
+  border-radius: 2px; /* Rounded edges */
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Position the lines */
+.custom-toggler .line:first-child {
+  top: 8px;
+}
+
+.custom-toggler .line:last-child {
+  top: 20px;
+}
+
+/* Transform into an 'X' when clicked */
+.custom-toggler[aria-expanded="true"] .line:first-child {
+  transform: rotate(45deg);
+  top: 14px; /* Center the line vertically */
+}
+
+.custom-toggler[aria-expanded="true"] .line:last-child {
+  transform: rotate(-45deg);
+  top: 14px; /* Center the line vertically */
+}
+
 #mainNav {
   position: fixed; /* Keeps the navbar at the top */
   top: 0;
@@ -25,6 +74,86 @@ html {
     rgba(14, 25, 56, 0.5)
   ); /* More opaque on hover */
   backdrop-filter: blur(10px); /* Adds a blur effect */
+}
+/* Submenu container */
+.submenu {
+  background-color: #ffffff; /* Match main navbar background */
+  border-bottom: 2px solid #fdbb2d;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Distribute back button and content */
+  align-items: center; /* Center horizontally */
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+/* Back button at the very top */
+.submenu .btn-back {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.submenu .btn-back:hover {
+  color: #fdbb2d; /* Match hover color */
+}
+
+/* Centered menu content */
+.submenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  flex-grow: 1; /* Ensure the content expands within the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+/* Submenu links */
+.submenu .nav-link {
+  color: #333333;
+  font-size: 1rem;
+  padding: 5px 10px;
+  text-transform: capitalize;
+  width: 100%; /* Ensure links take up full width */
+  text-align: center; /* Center-align text */
+}
+
+.submenu .nav-link:hover {
+  color: #fdbb2d;
+  text-decoration: none;
+}
+
+/* Divider */
+.submenu hr {
+  border-top: 1px solid #fdbb2d;
+  margin: 10px 0;
+  width: 80%; /* Align divider */
+}
+
+/* Request a Service Button */
+.submenu .bg-danger {
+  background-color: #fdbb2d;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.submenu .bg-danger a {
+  color: #ffffff;
+}
+
+.submenu .bg-danger a:hover {
+  text-decoration: underline;
 }
 
 header {
@@ -480,7 +609,7 @@ p {
   top: 5px;
   left: 20px;
   z-index: 2;
-  height: 150px;
+  height: 100px;
   width: auto;
   opacity: 1;
   visibility: visible;

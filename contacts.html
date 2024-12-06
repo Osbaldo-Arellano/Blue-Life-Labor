@@ -80,16 +80,17 @@
 
         <!-- Navbar Toggler (for mobile) -->
         <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navcol-1"
-          aria-controls="navcol-1"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        class="navbar-toggler custom-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navcol-1"
+        aria-controls="navcol-1"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
 
         <!-- Main Navigation Links -->
         <div class="collapse navbar-collapse" id="navcol-1">
@@ -177,6 +178,7 @@
           <li class="nav-item">
             <a class="nav-link" href="services.html">All Services</a>
           </li>
+          <hr/>
           <li class="nav-item">
             <hr />
           </li>
@@ -217,7 +219,7 @@
               >Pest Management</a
             >
           </li>
-          <li class="nav-item bg-danger p-2" style="border-radius: 3px">
+          <li class="nav-item p-2" style="border-radius: 3px">
             <a class="nav-link text-white" href="contacts.html"
               >Request a Service</a
             >
@@ -226,21 +228,66 @@
       </div>
     </nav>
     <header
+    style="
+      border-bottom: 2px solid #fdbb2d;
+      background-image: url(assets/img/projects/55.JPG);
+      background-size: cover;
+      background-position: center;
+      height: 49vh; /* 49% of the viewport height */
+      position: relative;
+      overflow: hidden;
+    "
+  >
+    <!-- Transparent Overlay -->
+    <div
       style="
-        border-bottom: 2px solid #fdbb2d;
-        background-image: url(assets/img/projects/55.JPG);
-        background-size: cover;
-        background-position: center;
-        height: 49vh; /* Full viewport height */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8); /* Black overlay with 50% transparency */
+        z-index: 1;
+      "
+    ></div>
+  
+    <!-- Text Content -->
+    <div
+      class="custom-header-text"
+      style="
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        color: white;
       "
     >
-      <div class="custom-header-text">
-        <p class="fw-bold mb-2" style="color: #fdbb2d; ">
-          CONTACT US
-        </p>
-        <h1>FOR GENERAL INFORMATION</h1>
-      </div>
-    </header>
+      <p
+        class="fw-bold mb-2"
+        style="
+          color: #fdbb2d;
+          font-size: 1.2rem;
+          letter-spacing: 0.1rem;
+          margin-bottom: 10px;
+        "
+      >
+        CONTACT US
+      </p>
+      <h1
+        style="
+          font-size: 2.5rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          margin: 0;
+        "
+      >
+        FOR GENERAL INFORMATION
+      </h1>
+    </div>
+  </header>
+  
 
     <div
       class="content-wrapper"

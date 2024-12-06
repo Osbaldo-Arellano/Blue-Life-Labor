@@ -50,16 +50,17 @@
 
         <!-- Navbar Toggler (for mobile) -->
         <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navcol-1"
-          aria-controls="navcol-1"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        class="navbar-toggler custom-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navcol-1"
+        aria-controls="navcol-1"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
 
         <!-- Main Navigation Links -->
         <div class="collapse navbar-collapse" id="navcol-1">
@@ -147,6 +148,7 @@
           <li class="nav-item">
             <a class="nav-link" href="services.html">All Services</a>
           </li>
+          <hr/>
           <li class="nav-item">
             <hr />
           </li>
@@ -187,7 +189,7 @@
               >Pest Management</a
             >
           </li>
-          <li class="nav-item bg-danger p-2" style="border-radius: 3px">
+          <li class="nav-item p-2" style="border-radius: 3px">
             <a class="nav-link text-white" href="contacts.html"
               >Request a Service</a
             >
@@ -196,21 +198,49 @@
       </div>
     </nav>
     <header
+    style="
+      border-bottom: 2px solid #fdbb2d;
+      background-image: url(assets/img/projects/55.JPG);
+      background-size: cover;
+      background-position: center;
+      height: 49vh; /* Full viewport height */
+      position: relative;
+      overflow: hidden;
+    "
+  >
+    <!-- Transparent overlay -->
+    <div
       style="
-        border-bottom: 2px solid #fdbb2d;
-        background-image: url(assets/img/projects/55.JPG);
-        background-size: cover;
-        background-position: center;
-        height: 49vh; /* Full viewport height */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8); /* Black overlay with 50% transparency */
+        z-index: 1;
+      "
+    ></div>
+  
+    <!-- Text Content -->
+    <div
+      class="custom-header-text"
+      style="
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        color: white;
       "
     >
-      <div class="custom-header-text">
-        <p class="fw-bold mb-2" style="color: #fdbb2d; margin-top: 15px">
-          OUR SERVICES
-        </p>
-        <h1 class="header-text">WHAT WE CAN DO FOR YOU</h1>
-      </div>
-    </header>
+      <p class="fw-bold mb-2" style="color: #fdbb2d; margin-top: 15px">
+        OUR SERVICES
+      </p>
+      <h1 class="header-text">WHAT WE CAN DO FOR YOU</h1>
+    </div>
+  </header>
+  
 
     <section class="py-5">
       <div class="container py-5">
@@ -464,65 +494,58 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const servicesLink = document.getElementById("services-link"); // Services link
-        const servicesMenu = document.getElementById("servicesMenu"); // Submenu for services
-        const backButton = document.getElementById("backButton"); // Back button
-        const navCol1 = document.getElementById("navcol-1"); // Main navigation
+      const servicesLink = document.getElementById("services-link"); // Services link
+      const servicesMenu = document.getElementById("servicesMenu"); // Submenu for services
+      const backButton = document.getElementById("backButton"); // Back button
+      const navCol1 = document.getElementById("navcol-1"); // Main navigation
 
-        // Store the original height of the main navigation to prevent shrinking
-        const navCol1OriginalHeight = navCol1.offsetHeight;
+      // Store the original height of the main navigation to prevent shrinking
+      const navCol1OriginalHeight = navCol1.offsetHeight;
 
-        // Show mobile submenu on "Services" click
-        servicesLink.addEventListener("click", (e) => {
-          if (window.innerWidth < 768) {
-            // Mobile behavior only
-            e.preventDefault(); // Prevent default link behavior
-            navCol1.style.height = `${navCol1OriginalHeight}px`; // Preserve height
-            navCol1.style.overflow = "hidden"; // Prevent scrolling inside main nav
-            navCol1.style.position = "relative"; // Maintain relative positioning
-            navCol1.style.zIndex = "1000"; // Keep main nav underneath
-            servicesMenu.classList.add("show"); // Show the submenu
-          }
-        });
-
-        // Hide submenu and then main nav on "Back" button click
-        backButton.addEventListener("click", () => {
-          closeSubMenu();
-        });
-
-        // Close submenu and main nav when a submenu link is clicked
-        const submenuLinks = servicesMenu.querySelectorAll("a.nav-link");
-        submenuLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            closeSubMenu();
-          });
-        });
-
-        // Listen for transitionend on servicesMenu to know when the submenu is fully closed
-        servicesMenu.addEventListener("transitionend", (e) => {
-          // Check if the submenu is now hidden (no .show class)
-          if (!servicesMenu.classList.contains("show")) {
-            // Now that the submenu is fully closed, close the main nav
-            navCol1.classList.remove("show");
-            resetNavStyles();
-          }
-        });
-
-        function closeSubMenu() {
-          // Start closing the submenu by removing .show, triggering CSS transition
-          servicesMenu.classList.remove("show");
-          // DO NOT reset nav styles or remove .show from navCol1 yet.
-          // Wait for transitionend event on servicesMenu.
-        }
-
-        // Reset main navigation styles after everything is closed
-        function resetNavStyles() {
-          navCol1.style.height = ""; // Reset height
-          navCol1.style.overflow = ""; // Reset overflow
-          navCol1.style.position = ""; // Reset position
-          navCol1.style.zIndex = ""; // Reset z-index
+      // Show mobile submenu on "Services" click
+      servicesLink.addEventListener("click", (e) => {
+        if (window.innerWidth < 768) {
+          // Mobile behavior only
+          e.preventDefault(); // Prevent default link behavior
+          navCol1.style.height = `${navCol1OriginalHeight}px`; // Preserve height
+          navCol1.style.overflow = "hidden"; // Prevent scrolling inside main nav
+          navCol1.style.position = "relative"; // Maintain relative positioning
+          navCol1.style.zIndex = "1000"; // Keep main nav underneath
+          servicesMenu.classList.add("show"); // Show the submenu
         }
       });
+
+      // Back button functionality
+      backButton.addEventListener("click", () => {
+        servicesMenu.classList.remove("show"); // Close the submenu
+        navCol1.classList.add("show"); // Re-show main navigation
+          resetNavStyles(); // Reset main nav styles
+      });
+
+      // Close submenu and main nav when a submenu link is clicked
+      const submenuLinks = servicesMenu.querySelectorAll("a.nav-link");
+      submenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          closeSubMenu(); // Close the submenu
+        });
+      });
+
+      // Reset main navigation styles after everything is closed
+      function resetNavStyles() {
+        navCol1.style.height = ""; // Reset height
+        navCol1.style.overflow = ""; // Reset overflow
+        navCol1.style.position = ""; // Reset position
+        navCol1.style.zIndex = ""; // Reset z-index
+      }
+
+      // Function to close the submenu
+      function closeSubMenu() {
+        servicesMenu.classList.remove("show"); // Hide submenu
+        navCol1.classList.remove("show"); // Hide main nav if open
+        resetNavStyles(); // Reset styles to default
+      }
+    });
+
     </script>
   </body>
 </html>
