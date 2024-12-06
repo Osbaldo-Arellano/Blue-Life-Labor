@@ -23,338 +23,10 @@
     />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-    <style>
-      #mainNav {
-        position: fixed; /* Keeps the navbar at the top */
-        top: 0;
-        left: 0;
-        width: 100%; /* Full width */
-        height: 10%; /* Adjust height as needed */
-        background: linear-gradient(
-          to bottom,
-          rgba(14, 25, 56, 0.9),
-          rgba(14, 25, 56, 0)
-        ); /* Gradient with transparency */
-        z-index: 1000; /* Stacks above other elements */
-        border: none; /* Removes any border */
-        transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
-      }
-
-      #mainNav:hover {
-        background: linear-gradient(
-          to bottom,
-          rgba(14, 25, 56, 1),
-          rgba(14, 25, 56, 0.5)
-        ); /* More opaque on hover */
-        backdrop-filter: blur(10px); /* Adds a blur effect */
-      }
-
-      header {
-        position: relative; /* Keeps the header content manageable */
-        z-index: 0; /* Stacks below the navbar */
-        margin: 0; /* Ensures no unnecessary spacing */
-        padding-top: 0; /* Optional: Avoid unnecessary top padding */
-      }
-
-      .card-body {
-        background-color: white;
-        border-radius: 10%;
-      }
-
-      .contact-info {
-        text-align: left;
-      }
-
-      .contact-info h6,
-      .contact-info p {
-        margin: 0; /* Remove default margins for consistency */
-      }
-
-      /* Set a consistent height for the carousel and use object-fit */
-      #imageCarousel img {
-        height: 500px; /* Adjust the height as needed */
-        object-fit: cover; /* Ensures the image covers the container */
-        width: 100%; /* Ensures the image spans the width */
-      }
-
-      /* Optional: Add a background color for placeholder loading */
-      #imageCarousel .carousel-item {
-        background-color: #f8f9fa; /* Light gray */
-      }
-      #modalImage {
-        max-height: 90vh; /* Prevents the image from exceeding the viewport height */
-        width: auto; /* Maintains aspect ratio */
-      }
-      /* Thumbnail container styling */
-      #carouselThumbnails {
-        max-width: 800px;
-        overflow-x: auto; /* Enable horizontal scrolling if thumbnails exceed container width */
-      }
-
-      /* Thumbnail images */
-      .img-thumbnail {
-        width: 100px; /* Set fixed width for thumbnails */
-        height: 60px; /* Adjust height for consistent sizing */
-        object-fit: cover; /* Ensure thumbnails are cropped properly */
-        transition: transform 0.2s ease; /* Add a hover effect */
-      }
-
-      /* Hover effect for thumbnails */
-      .img-thumbnail:hover {
-        transform: scale(1.1); /* Slightly enlarge thumbnail on hover */
-      }
-
-      .bg-primary-gradient {
-        background: linear-gradient(0deg, #243f8b, black 100%);
-        color: white;
-      }
-
-      .bg-primary-gradient-2 {
-        background: linear-gradient(0deg, #050a16, #243f8b 150%);
-        color: white;
-      }
-
-      body {
-        background: linear-gradient(0deg, #080f22, #1f3981 95%);
-      }
-
-      hr {
-        border-color: rgba(
-          255,
-          255,
-          255,
-          0.2
-        ); /* Optional: Adjust HR styling */
-      }
-
-      /* General Logo Styling */
-      .logo {
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        z-index: 1900; /* Higher than the navbar and menu */
-      }
-
-      /* General Logo Styling */
-      .logo {
-        transition: opacity 0.3s ease-in-out;
-      }
-
-      /* Large Logo */
-      .large-logo {
-        position: absolute;
-        top: 5px;
-        left: 20px;
-        z-index: 2;
-        height: 150px; /* Adjust the size */
-        width: auto;
-        opacity: 1;
-        visibility: visible;
-      }
-
-      /* Small Logo */
-      .small-logo {
-        position: static;
-        height: 50px; /* Adjust to fit inside the navbar */
-        width: auto;
-        z-index: 2;
-        opacity: 0;
-        visibility: hidden;
-      }
-
-      /* Visibility Classes */
-      .hidden {
-        opacity: 0;
-        visibility: hidden;
-      }
-
-      .visible {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      #rotatingHeader {
-        height: 100vh;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .custom-header-text {
-        position: absolute;
-        top: 10%;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        color: white;
-        background-color: rgba(0, 0, 0, 0);
-        padding: 10px 20px;
-        border-radius: 8px;
-        z-index: 10;
-        font-family: "Oswald", sans-serif; /* Apply Oswald font */
-      }
-
-      .custom-header-text h1 {
-        font-size: 4rem;
-        margin: 0;
-        font-weight: 1000; /* Bold weight for Oswald */
-      }
-
-      .custom-header-text p {
-        font-size: 2rem;
-        margin: 0 0 10px 0;
-        font-weight: 1000; /* Regular weight for Oswald */
-      }
-
-      .image-container {
-        height: 100%;
-        width: 100%;
-        position: relative;
-      }
-
-      .rotating-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-      }
-
-      .rotating-image.active {
-        opacity: 1;
-        z-index: 5;
-      }
-
-      .translucent-background {
-        background-color: rgba(255, 255, 255, 0.5); /* White with 80% opacity */
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        display: inline-block; /* Keeps the background size minimal */
-      }
-
-      .translucent-background img {
-        max-height: 100px; /* Adjust image size if needed */
-        width: auto;
-        transition: transform 0.3s ease; /* Smooth hover effect */
-      }
-
-      .translucent-background img:hover {
-        transform: scale(1.1); /* Slight zoom on hover */
-      }
-
-      body {
-        background: linear-gradient(0deg, black, #1f3981 190%);
-      }
-
-      p {
-        color: white; /* Ensure text stands out */
-      }
-
-      .navbar-nav .nav-link {
-        color: rgb(165, 163, 163); /* Default link color */
-        text-decoration: none; /* No underline by default */
-        transition: color 0.3s ease; /* Smooth transition */
-        font-family: "Oswald", sans-serif; /* Apply Oswald font */
-        font-weight: bold; /* Make the text more bold */
-      }
-
-      .navbar-nav .nav-link:hover {
-        color: #fdbb2d !important; /* Highlight color on hover */
-        text-decoration: underline; /* Add underline on hover */
-      }
-
-      .navbar-nav .nav-link.active {
-        color: #fdbb2d !important; /* Active link color */
-      }
-
-      /* Target mobile devices */
-      @media (max-width: 768px) {
-        .navbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .navbar-toggler {
-          margin-left: auto; /* Push the toggle button to the far right */
-          z-index: 1001; /* Ensure it is above the collapse menu */
-        }
-
-        .navbar-collapse {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vh; /* Full viewport height */
-          background: linear-gradient(
-            to bottom,
-            rgba(14, 25, 56, 0.9),
-            rgba(14, 25, 56, 0.5)
-          ); /* Gradient for mobile menu */
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          opacity: 0; /* Initially hidden */
-          visibility: hidden; /* Prevent interaction */
-          transform: translateY(-100%); /* Slide out of view */
-          transition: opacity 0.1s ease, transform 0.5s ease,
-            visibility 0.5s ease;
-          z-index: 1000;
-          backdrop-filter: blur(10px); /* Adds a blur effect */
-        }
-
-        .navbar-collapse.show {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0); /* Slide into view */
-        }
-
-        .navbar-nav {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-        }
-
-        .navbar-nav .nav-item {
-          margin: 1rem 0;
-        }
-
-        .navbar-nav .nav-link {
-          font-size: 1.5rem;
-          color: white;
-          text-decoration: none;
-          transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-          color: #fdbb2d; /* Highlight color on hover */
-        }
-
-        .navbar-toggler-icon {
-          background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="white" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
-        }
-
-        .infoo {
-          display: none;
-        }
-
-        .custom-header-text p {
-          content: "PROFESSIONALISM PASSION PRODUCTIVITY"; /* Removes dots */
-          font-size: 2.1rem; /* Optional: adjust font size for mobile */
-          color: white;
-          margin-top: 50%;
-        }
-
-        #logo-container {
-          z-index: 2000;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/bootstrap/css/main.css" />
   </head>
   <body>
+    <!-- Main Navbar -->
     <nav class="navbar navbar-expand-md sticky-top py-3" id="mainNav">
       <div class="container">
         <!-- Logo Section -->
@@ -373,22 +45,79 @@
 
         <!-- Navbar Toggler (for mobile) -->
         <button
-          data-bs-toggle="collapse"
           class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
           data-bs-target="#navcol-1"
+          aria-controls="navcol-1"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span class="visually-hidden">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navigation Links -->
+        <!-- Main Navigation Links -->
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav ms-0">
             <li class="nav-item">
               <a class="nav-link active" href="index.html">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
+            <li class="nav-item dropdown services-item">
+              <a class="nav-link" href="services.html" id="services-link"
+                >Services →</a
+              >
+              <!-- Submenu for Desktop (hover-based) -->
+              <div class="services-submenu d-none d-md-block">
+                <ul class="list-unstyled">
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#harvest-service"
+                      >Harvesting</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#pruning-service"
+                      >Pruning</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#field-preparation-and-maintenance-service"
+                      >Field Prep</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#plant-and-tree-nurseries-service"
+                      >Plant Nurseries</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#irrigation-installation-and-maintenance-service"
+                      >Irrigation</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#pest-and-disease-management-service"
+                      >Pest Management</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a class="nav-link text-white" href="contacts.html"
+                      >Request a Service</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="safety.html">Safety and Compliance</a>
@@ -401,6 +130,64 @@
             </li>
           </ul>
         </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Submenu -->
+    <nav class="navbar sticky-top py-3 submenu d-md-none" id="servicesMenu">
+      <div class="container">
+        <button class="btn btn-back" id="backButton">← Back</button>
+        <ul class="navbar-nav ms-0">
+          <!-- Main Section Link -->
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">All Services</a>
+          </li>
+          <li class="nav-item">
+            <hr />
+          </li>
+          <!-- Subsections -->
+          <li class="nav-item">
+            <a class="nav-link" href="services.html#harvest-service"
+              >Harvesting</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html#pruning-service">Pruning</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#field-preparation-and-maintenance-service"
+              >Field Prep</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#plant-and-tree-nurseries-service"
+              >Plant Nurseries</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#irrigation-installation-and-maintenance-service"
+              >Irrigation</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#pest-and-disease-management-service"
+              >Pest Management</a
+            >
+          </li>
+          <li class="nav-item bg-danger p-2" style="border-radius: 3px">
+            <a class="nav-link text-white" href="contacts.html"
+              >Request a Service</a
+            >
+          </li>
+        </ul>
       </div>
     </nav>
 
@@ -565,7 +352,9 @@
             <div class="col mb-5">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <h5 class="fw-bold card-title">Harvesting Services</h5>
+                  <h5 class="fw-bold card-title" style="color: black">
+                    Harvesting Services
+                  </h5>
                   <p class="text-muted card-text mb-4">
                     Our skilled workforce ensures efficient and timely
                     harvesting of a variety of crops, minimizing loss and
@@ -583,7 +372,9 @@
             <div class="col mb-5">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <h5 class="fw-bold card-title">Pruning Services</h5>
+                  <h5 class="fw-bold card-title" style="color: black">
+                    Pruning Services
+                  </h5>
                   <p class="text-muted card-text mb-4">
                     Let us provide you with our talented pruning workforce. We
                     will work together to tailor a pruning style for each crop
@@ -601,7 +392,7 @@
             <div class="col mb-4">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <h5 class="fw-bold card-title">
+                  <h5 class="fw-bold card-title" style="color: black">
                     Field Preparation & Maintenance
                   </h5>
                   <p class="text-muted card-text mb-4">
@@ -621,7 +412,9 @@
             <div class="col mb-4">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <h5 class="fw-bold card-title">Plant & Tree Nurseries</h5>
+                  <h5 class="fw-bold card-title" style="color: black">
+                    Plant & Tree Nurseries
+                  </h5>
                   <p class="text-muted card-text mb-4">
                     Our team has experience working with plant and tree
                     nurseries. We will work together to fulfill our clients
@@ -640,7 +433,7 @@
             <div class="col mb-4">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <h5 class="fw-bold card-title">
+                  <h5 class="fw-bold card-title" style="color: black">
                     Irrigation Installation & Maintenance
                   </h5>
                   <p class="text-muted card-text mb-4">
@@ -660,7 +453,9 @@
             <div class="col mb-4">
               <div class="card shadow-sm">
                 <div class="card-body px-4 py-5 px-md-5">
-                  <h5 class="fw-bold card-title">Pest & Disease Management</h5>
+                  <h5 class="fw-bold card-title" style="color: black">
+                    Pest & Disease Management
+                  </h5>
                   <p class="text-muted card-text mb-4">
                     We assist in controlling pests and diseases through safe and
                     effective methods to protect your crops and maximize yield.
@@ -1111,6 +906,62 @@
           newsletterSubmitButton.disabled = false;
           newsletterSubmitButton.textContent = "Subscribe";
         }
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Only enable submenu behavior for mobile screens
+        if (window.innerWidth <= 768) {
+          const servicesLink = document.getElementById("services-link");
+          const servicesMenu = document.getElementById("servicesMenu");
+          const backButton = document.getElementById("backButton");
+
+          // Show submenu when "Services" is clicked
+          servicesLink.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            servicesMenu.classList.add("show"); // Show the submenu
+          });
+
+          // Hide submenu when "Back" is clicked
+          backButton.addEventListener("click", () => {
+            servicesMenu.classList.remove("show"); // Hide the submenu
+          });
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const servicesLink = document.getElementById("services-link"); // Services link
+        const servicesMenu = document.getElementById("servicesMenu"); // Submenu for services
+        const backButton = document.getElementById("backButton"); // Back button
+        const navCol1 = document.getElementById("navcol-1"); // Main navigation
+
+        // Store the original height of the main navigation to prevent shrinking
+        const navCol1OriginalHeight = navCol1.offsetHeight;
+
+        // Show mobile submenu on "Services" click
+        servicesLink.addEventListener("click", (e) => {
+          if (window.innerWidth < 768) {
+            // Mobile behavior only
+            e.preventDefault(); // Prevent default link behavior
+            navCol1.style.height = `${navCol1OriginalHeight}px`; // Preserve height
+            navCol1.style.overflow = "hidden"; // Prevent scrolling inside main nav
+            navCol1.style.position = "relative"; // Maintain relative positioning
+            navCol1.style.zIndex = "1000"; // Keep main nav underneath
+            servicesMenu.classList.add("show"); // Show the submenu
+          }
+        });
+
+        // Hide submenu and return to main nav on "Back" button click
+        backButton.addEventListener("click", () => {
+          servicesMenu.classList.remove("show"); // Hide the submenu
+          navCol1.style.height = ""; // Reset height
+          navCol1.style.overflow = ""; // Reset overflow
+          navCol1.style.position = ""; // Reset position
+          navCol1.style.zIndex = ""; // Reset z-index
+        });
       });
     </script>
   </body>

@@ -26,112 +26,14 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/bootstrap/css/main.css" />
 
     <!-- Bootstrap JS -->
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <style>
-      body {
-        height: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        font-family: "Inter", sans-serif;
-        color: #fff;
-        background: linear-gradient(0deg, black, #16295e 125%);
-      }
-
-      /* Prevent header content from hiding under the navbar */
-      header {
-        padding-top: 80px; /* Matches navbar height */
-        background-color: #16295e; /* Set your desired background color */
-        color: white;
-      }
-
-      #mainNav {
-        position: fixed; /* Keeps the navbar at the top */
-        top: 0;
-        left: 0;
-        width: 100%; /* Full width */
-        height: 10%; /* Adjust height as needed */
-        background: linear-gradient(
-          to bottom,
-          rgba(14, 25, 56, 0.9),
-          rgba(14, 25, 56, 0)
-        ); /* Gradient with transparency */
-        z-index: 1000; /* Stacks above other elements */
-        border: none; /* Removes any border */
-        transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
-      }
-
-      #mainNav:hover {
-        background: linear-gradient(
-          to bottom,
-          rgba(14, 25, 56, 1),
-          rgba(14, 25, 56, 0.5)
-        ); /* More opaque on hover */
-        backdrop-filter: blur(10px); /* Adds a blur effect */
-      }
-
       .content-wrapper {
         flex: 1; /* Pushes the footer to the bottom when there isn't enough content */
-      }
-
-      .navbar-nav .nav-link {
-        color: rgb(165, 163, 163) !important; /* Default link color */
-        text-decoration: none; /* No underline by default */
-        transition: color 0.3s ease; /* Smooth transition */
-        font-family: "Oswald", sans-serif; /* Apply Oswald font */
-        font-weight: bold; /* Make the text more bold */
-      }
-
-      .navbar-nav .nav-link:hover {
-        color: #fdbb2d !important; /* Highlight color on hover */
-        text-decoration: underline; /* Add underline on hover */
-      }
-      .navbar-nav .nav-link.active {
-        color: #fdbb2d !important; /* Active link color */
-      }
-
-      .custom-header-text {
-        text-align: center;
-        margin-top: 4%;
-        color: white;
-        font-family: "Oswald", sans-serif; /* Apply Oswald font */
-        margin-top: 6%;
-      }
-      .custom-header-text h1 {
-        font-size: 2rem;
-        margin: 0;
-        font-weight: 1000; /* Bold weight for Oswald */
-      }
-
-      .custom-header-text p {
-        font-size: 1.5rem;
-        margin: 0 0 10px 0;
-        font-weight: 1000; /* Regular weight for Oswald */
-      }
-
-      .logo {
-        transition: opacity 0.3s ease-in-out;
-      }
-      .large-logo {
-        position: absolute;
-        top: 5px;
-        left: 20px;
-        z-index: 2;
-        height: 150px;
-        width: auto;
-        opacity: 1;
-        visibility: visible;
-      }
-      .small-logo {
-        position: static;
-        height: 50px;
-        width: auto;
-        z-index: 2;
-        opacity: 0;
-        visibility: hidden;
       }
 
       .profile-img-container {
@@ -151,178 +53,14 @@
         background-color: #fff; /* Optional: to avoid transparency issues */
       }
 
-      .hidden {
-        opacity: 0;
-        visibility: hidden;
-      }
-      .visible {
-        opacity: 1;
-        visibility: visible;
-      }
-      h3,
-      h5,
-      h6,
-      p,
-      ul li {
-        color: #fff;
-      }
-      .fw-bold {
-        font-weight: 600;
-      }
-      .text-uppercase {
-        text-transform: uppercase;
-      }
-      .card {
-        background: rgb(255, 255, 255, 0.4); /* Transparent white */
-        border: none;
-        border-radius: 0.5rem;
-      }
-      .card-body {
-        padding: 2rem;
-      }
-      .card h5,
-      .card h6 {
-        color: #fdbb2d;
-      }
-
       .content-wrapper {
         flex: 1; /* Push the footer to the bottom */
-      }
-
-      /* Footer styles */
-      .footer {
-        background: linear-gradient(0deg, #243f8b, #03050b 100%);
-        color: #fff;
-        padding: 20px 0;
-        text-align: center;
-      }
-
-      .footer hr {
-        border-top: 1px solid #fff;
-        margin: 0 auto;
-        width: 80%;
-      }
-      .compliance-logos img {
-        max-width: 150px;
-        margin: 15px;
-        transition: transform 0.3s ease;
-      }
-
-      .compliance-logos img:hover {
-        transform: scale(1.1);
-      }
-
-      .compliance-container {
-        background: rgb(255, 255, 255, 0.4); /* Transparent white */
-        border-radius: 10px; /* Rounded corners */
-        backdrop-filter: blur(10px); /* Background blur */
-        padding: 20px; /* Spacing inside container */
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); /* Subtle shadow */
-      }
-
-      .compliance-logos img {
-        max-width: 150px;
-        margin: 15px;
-        transition: transform 0.3s ease, filter 0.3s ease;
-        filter: brightness(0.9); /* Slightly dim */
-      }
-
-      .compliance-logos img:hover {
-        transform: scale(1.1); /* Slight zoom on hover */
-        filter: brightness(1); /* Brighten on hover */
-      }
-
-      .navbar-nav .nav-link {
-        color: black; /* Default link color */
-        text-decoration: none;
-        transition: color 0.3s ease; /* Smooth transition */
-      }
-
-      .navbar-nav .nav-link:hover {
-        color: #fdbb2d !important; /* Highlight color on hover */
-      }
-
-      .navbar-nav .nav-link.active {
-        color: #fdbb2d !important; /* Active link color */
       }
 
       @media (max-width: 768px) {
         .compliance-logos img {
           max-width: 100px;
           margin: 10px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .navbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .navbar-toggler {
-          margin-left: auto; /* Push the toggle button to the far right */
-          z-index: 1001; /* Ensure it is above the collapse menu */
-        }
-
-        .navbar-collapse {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vh; /* Full viewport height */
-          background: linear-gradient(
-            to bottom,
-            rgba(14, 25, 56, 0.9),
-            rgba(14, 25, 56, 0.5)
-          ); /* Gradient for mobile menu */
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          opacity: 0; /* Initially hidden */
-          visibility: hidden; /* Prevent interaction */
-          transform: translateY(-100%); /* Slide out of view */
-          transition: opacity 0.1s ease, transform 0.5s ease,
-            visibility 0.5s ease;
-          z-index: 1000;
-          backdrop-filter: blur(10px); /* Adds a blur effect */
-        }
-
-        .navbar-collapse.show {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0); /* Slide into view */
-        }
-
-        .navbar-nav {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-        }
-
-        .navbar-nav .nav-item {
-          margin: 1rem 0;
-        }
-
-        .navbar-nav .nav-link {
-          font-size: 1.5rem;
-          color: white;
-          text-decoration: none;
-          transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-          color: #fdbb2d; /* Highlight color on hover */
-        }
-
-        .navbar-toggler-icon {
-          background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="white" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
-        }
-
-        .infoo {
-          display: none;
         }
 
         .custom-header-text {
@@ -332,8 +70,7 @@
         #logo-container {
           z-index: 2000;
         }
-      }
-      @media (max-width: 768px) {
+
         .profile-img-container {
           margin-bottom: 20px; /* Add spacing below the image */
         }
@@ -367,6 +104,7 @@
     </style>
   </head>
   <body>
+    <!-- Main Navbar -->
     <nav class="navbar navbar-expand-md sticky-top py-3" id="mainNav">
       <div class="container">
         <!-- Logo Section -->
@@ -385,22 +123,79 @@
 
         <!-- Navbar Toggler (for mobile) -->
         <button
-          data-bs-toggle="collapse"
           class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
           data-bs-target="#navcol-1"
+          aria-controls="navcol-1"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span class="visually-hidden">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navigation Links -->
+        <!-- Main Navigation Links -->
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav ms-0">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
+            <li class="nav-item dropdown services-item">
+              <a class="nav-link" href="services.html" id="services-link"
+                >Services →</a
+              >
+              <!-- Submenu for Desktop (hover-based) -->
+              <div class="services-submenu d-none d-md-block">
+                <ul class="list-unstyled">
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#harvest-service"
+                      >Harvesting</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#pruning-service"
+                      >Pruning</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#field-preparation-and-maintenance-service"
+                      >Field Prep</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#plant-and-tree-nurseries-service"
+                      >Plant Nurseries</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#irrigation-installation-and-maintenance-service"
+                      >Irrigation</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#pest-and-disease-management-service"
+                      >Pest Management</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a class="nav-link text-white" href="contacts.html"
+                      >Request a Service</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="safety.html">Safety and Compliance</a>
@@ -415,8 +210,67 @@
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Submenu -->
+    <nav class="navbar sticky-top py-3 submenu d-md-none" id="servicesMenu">
+      <div class="container">
+        <button class="btn btn-back" id="backButton">← Back</button>
+        <ul class="navbar-nav ms-0">
+          <!-- Main Section Link -->
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">All Services</a>
+          </li>
+          <li class="nav-item">
+            <hr />
+          </li>
+          <!-- Subsections -->
+          <li class="nav-item">
+            <a class="nav-link" href="services.html#harvest-service"
+              >Harvesting</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html#pruning-service">Pruning</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#field-preparation-and-maintenance-service"
+              >Field Prep</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#plant-and-tree-nurseries-service"
+              >Plant Nurseries</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#irrigation-installation-and-maintenance-service"
+              >Irrigation</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#pest-and-disease-management-service"
+              >Pest Management</a
+            >
+          </li>
+          <li class="nav-item bg-danger p-2" style="border-radius: 3px">
+            <a class="nav-link text-white" href="contacts.html"
+              >Request a Service</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
     <header
       style="
+        border-bottom: 2px solid #fdbb2d;
         background-image: url(assets/img/projects/55.JPG);
         background-size: cover;
         background-position: center;
@@ -542,6 +396,40 @@
 
       document.addEventListener("scroll", updateLogo);
       document.addEventListener("DOMContentLoaded", updateLogo);
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const servicesLink = document.getElementById("services-link"); // Services link
+        const servicesMenu = document.getElementById("servicesMenu"); // Submenu for services
+        const backButton = document.getElementById("backButton"); // Back button
+        const navCol1 = document.getElementById("navcol-1"); // Main navigation
+
+        // Store the original height of the main navigation to prevent shrinking
+        const navCol1OriginalHeight = navCol1.offsetHeight;
+
+        // Show mobile submenu on "Services" click
+        servicesLink.addEventListener("click", (e) => {
+          if (window.innerWidth < 768) {
+            // Mobile behavior only
+            e.preventDefault(); // Prevent default link behavior
+            navCol1.style.height = `${navCol1OriginalHeight}px`; // Preserve height
+            navCol1.style.overflow = "hidden"; // Prevent scrolling inside main nav
+            navCol1.style.position = "relative"; // Maintain relative positioning
+            navCol1.style.zIndex = "1000"; // Keep main nav underneath
+            servicesMenu.classList.add("show"); // Show the submenu
+          }
+        });
+
+        // Hide submenu and return to main nav on "Back" button click
+        backButton.addEventListener("click", () => {
+          servicesMenu.classList.remove("show"); // Hide the submenu
+          navCol1.style.height = ""; // Reset height
+          navCol1.style.overflow = ""; // Reset overflow
+          navCol1.style.position = ""; // Reset position
+          navCol1.style.zIndex = ""; // Reset z-index
+        });
+      });
     </script>
   </body>
 </html>

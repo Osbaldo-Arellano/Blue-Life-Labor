@@ -18,182 +18,24 @@
       href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap"
     />
     <link
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/bootstrap/css/main.css" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <style>
-      footer {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-      }
-
-      body {
-        background: linear-gradient(0deg, black, #1f3981 125%);
-        color: white;
-      }
-
-
-      #mainNav {
-        position: fixed; /* Keeps the navbar at the top */
-        top: 0;
-        left: 0;
-        width: 100%; /* Full width */
-        height: 10%; /* Adjust height as needed */
-        background: linear-gradient(
-          to bottom,
-          rgba(14, 25, 56, 0.9),
-          rgba(14, 25, 56, 0)
-        ); /* Gradient with transparency */
-        z-index: 1000; /* Stacks above other elements */
-        border: none; /* Removes any border */
-        transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
-      }
-
-      #mainNav:hover {
-        background: linear-gradient(
-          to bottom,
-          rgba(14, 25, 56, 1),
-          rgba(14, 25, 56, 0.5)
-        ); /* More opaque on hover */
-        backdrop-filter: blur(10px); /* Adds a blur effect */
-      }
-
-      .navbar-nav .nav-link {
-        color: rgb(165, 163, 163) !important; /* Default link color */
-        text-decoration: none; /* No underline by default */
-        transition: color 0.3s ease; /* Smooth transition */
-        font-family: "Oswald", sans-serif; /* Apply Oswald font */
-        font-weight: bold; /* Make the text more bold */
-      }
-
-      .navbar-nav .nav-link:hover {
-        color: #fdbb2d !important; /* Highlight color on hover */
-        text-decoration: underline; /* Add underline on hover */
-      }
-      .navbar-nav .nav-link.active {
-        color: #fdbb2d !important; /* Active link color */
-      }
-
-      .bg-primary-gradient {
-        background: linear-gradient(0deg, #16295e, black 100%);
-        color: white;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      a,
-      .text-muted {
-        color: white !important;
-      }
-
-      .nav-link {
-        color: black !important; /* Set a distinct color for navigation links */
-      }
-
-      a:hover {
-        color: #fdbb2d; /* Optional hover color */
-      }
-
-     /* General styling for the logo */
-    .logo-container {
-      position: fixed; /* Ensures it remains fixed on the screen */
-      top: 0; /* Aligns it to the top */
-      left: 0; /* Aligns it to the left */
-      z-index: 1100; /* Higher than the navbar and menu */
-      padding: 10px; /* Optional: Adds spacing around the logo */
-    }
-
-    .logo {
-      height: 50px; /* Adjust as needed for your design */
-      width: auto; /* Maintain aspect ratio */
-    }
-
-    /* Ensure the navbar doesn't overlap the logo */
-    .navbar-collapse {
-      z-index: 1000; /* Keep it below the logo */
-    }
-
-
-      /* Large Logo */
-      .large-logo {
-        position: absolute;
-        top: 5px;
-        left: 20px;
-        z-index: 2;
-        height: 150px; /* Adjust the size */
-        width: auto;
-        opacity: 1;
-        visibility: visible;
-      }
-
-      /* Small Logo */
-      .small-logo {
-        position: static;
-        height: 50px; /* Adjust to fit inside the navbar */
-        width: auto;
-        z-index: 2;
-        opacity: 0;
-        visibility: hidden;
-      }
-
-      /* Visibility Classes */
-      .hidden {
-        opacity: 0;
-        visibility: hidden;
-      }
-
-      .visible {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      /* Ensure the body and html take up full height */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-      }
-
-      /* Make the content wrapper grow to take available space */
-      .content-wrapper {
-        flex: 1; /* Pushes the footer to the bottom when there isn't enough content */
-      }
-
-      /* Footer specific styling */
-      footer {
-        background-color: #243f8b; /* Optional: Matches your current footer color */
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-      }
-
-      .navbar-nav .nav-link {
-        color: black; /* Default link color */
-        text-decoration: none;
-        transition: color 0.3s ease; /* Smooth transition */
-      }
-
-      .navbar-nav .nav-link:hover {
-        color: #fdbb2d !important; /* Highlight color on hover */
-      }
-
-      .navbar-nav .nav-link.active {
-        color: #fdbb2d !important; /* Active link color */
-      }
-
       .custom-header-text {
         text-align: center;
         color: white;
         font-family: "Oswald", sans-serif; /* Apply Oswald font */
+      }
+      .custom-header-text-2 {
+        text-align: center;
+        color: white;
+        font-family: "Oswald", sans-serif; /* Apply Oswald font */
+        font-size: 2.5rem;
       }
       .custom-header-text h1 {
         font-size: 2.5rem;
@@ -207,89 +49,14 @@
         font-weight: 1000; /* Regular weight for Oswald */
       }
 
-      /* Target mobile devices */
-      @media (max-width: 768px) {
-        .navbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .navbar-toggler {
-          margin-left: auto; /* Push the toggle button to the far right */
-          z-index: 1001; /* Ensure it is above the collapse menu */
-        }
-
-        .navbar-collapse {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vh; /* Full viewport height */
-          background: linear-gradient(to bottom, rgba(14, 25, 56, 0.9), rgba(14, 25, 56, 0.5)); /* Gradient for mobile menu */
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          opacity: 0; /* Initially hidden */
-          visibility: hidden; /* Prevent interaction */
-          transform: translateY(-100%); /* Slide out of view */
-          transition: opacity 0.1s ease, transform 0.5s ease, visibility 0.5s ease;
-          z-index: 1000;
-          backdrop-filter: blur(10px); /* Adds a blur effect */
-
-        }
-
-        .navbar-toggler-icon {
-          background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="white" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
-        }
-
-        .navbar-collapse.show {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0); /* Slide into view */
-        }
-
-        .navbar-nav {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-        }
-
-        .navbar-nav .nav-item {
-          margin: 1rem 0;
-        }
-
-        .navbar-nav .nav-link {
-          font-size: 1.5rem;
-          color: white;
-          text-decoration: none;
-          transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-          color: #fdbb2d; /* Highlight color on hover */
-        }
-
-
-        .custom-header-text {
-          margin-top: 20%;
-        }
-
-        .infoo {
-          display: none;
-        }
-
-        #logo-container {
-          z-index: 2000;
-        }
+      .content-wrapper {
+        margin-top: 0; /* Adjust as needed */
       }
-
     </style>
   </head>
 
   <body>
+    <!-- Main Navbar -->
     <nav class="navbar navbar-expand-md sticky-top py-3" id="mainNav">
       <div class="container">
         <!-- Logo Section -->
@@ -308,22 +75,79 @@
 
         <!-- Navbar Toggler (for mobile) -->
         <button
-          data-bs-toggle="collapse"
           class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
           data-bs-target="#navcol-1"
+          aria-controls="navcol-1"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span class="visually-hidden">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navigation Links -->
+        <!-- Main Navigation Links -->
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav ms-0">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
+            <li class="nav-item dropdown services-item">
+              <a class="nav-link" href="services.html" id="services-link"
+                >Services →</a
+              >
+              <!-- Submenu for Desktop (hover-based) -->
+              <div class="services-submenu d-none d-md-block">
+                <ul class="list-unstyled">
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#harvest-service"
+                      >Harvesting</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#pruning-service"
+                      >Pruning</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#field-preparation-and-maintenance-service"
+                      >Field Prep</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#plant-and-tree-nurseries-service"
+                      >Plant Nurseries</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#irrigation-installation-and-maintenance-service"
+                      >Irrigation</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a
+                      class="dropdown-item"
+                      href="services.html#pest-and-disease-management-service"
+                      >Pest Management</a
+                    >
+                  </li>
+                  <li class="nav-item p-2">
+                    <a class="nav-link text-white" href="contacts.html"
+                      >Request a Service</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="safety.html">Safety and Compliance</a>
@@ -338,6 +162,80 @@
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Submenu -->
+    <nav class="navbar sticky-top py-3 submenu d-md-none" id="servicesMenu">
+      <div class="container">
+        <button class="btn btn-back" id="backButton">← Back</button>
+        <ul class="navbar-nav ms-0">
+          <!-- Main Section Link -->
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">All Services</a>
+          </li>
+          <li class="nav-item">
+            <hr />
+          </li>
+          <!-- Subsections -->
+          <li class="nav-item">
+            <a class="nav-link" href="services.html#harvest-service"
+              >Harvesting</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html#pruning-service">Pruning</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#field-preparation-and-maintenance-service"
+              >Field Prep</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#plant-and-tree-nurseries-service"
+              >Plant Nurseries</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#irrigation-installation-and-maintenance-service"
+              >Irrigation</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="services.html#pest-and-disease-management-service"
+              >Pest Management</a
+            >
+          </li>
+          <li class="nav-item bg-danger p-2" style="border-radius: 3px">
+            <a class="nav-link text-white" href="contacts.html"
+              >Request a Service</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <header
+      style="
+        border-bottom: 2px solid #fdbb2d;
+        background-image: url(assets/img/projects/55.JPG);
+        background-size: cover;
+        background-position: center;
+        height: 49vh; /* Full viewport height */
+      "
+    >
+      <div class="custom-header-text">
+        <p class="fw-bold mb-2" style="color: #fdbb2d; margin-top: 50%">
+          CONTACT US
+        </p>
+      </div>
+    </header>
+
     <div
       class="content-wrapper"
       style="
@@ -346,16 +244,10 @@
       "
     >
       <section class="py-5">
+        <h1 class="custom-header-text-2" style="text-align: center">
+          What can we do for you?
+        </h1>
         <div class="container py-5">
-          <div class="row mb-5">
-            <div class="custom-header-text">
-              <p class="fw-bold mb-2" style="color: #fdbb2d">
-              CONTACT US
-              </p>
-              <h1 class="header-text">
-              What can we do for you?       
-            </div>
-          </div>
           <div class="row d-flex justify-content-center">
             <div class="col-md-6 col-xl-4">
               <div>
@@ -442,7 +334,7 @@
                   </div>
                   <div class="px-2">
                     <h6 class="fw-bold mb-0">Phone</h6>
-                    <p class="text-muted mb-0">(971) 983-7154</p>
+                    <p class="mb-0">(971) 983-7154</p>
                   </div>
                 </div>
                 <div class="d-flex align-items-center p-3">
@@ -464,7 +356,7 @@
                   </div>
                   <div class="px-2">
                     <h6 class="fw-bold mb-0">Email</h6>
-                    <p class="text-muted mb-0">bluelifelabor@gmail.com</p>
+                    <p class="mb-0">bluelifelabor@gmail.com</p>
                   </div>
                 </div>
                 <div class="d-flex align-items-center p-3">
@@ -486,7 +378,7 @@
                   </div>
                   <div class="px-2">
                     <h6 class="fw-bold mb-0">Location</h6>
-                    <p class="text-muted mb-0">Woodburn, Oregon</p>
+                    <p class="mb-0">Woodburn, Oregon</p>
                   </div>
                 </div>
               </div>
@@ -499,9 +391,7 @@
       <div class="container py-4 py-lg-5">
         <div class="row justify-content-center"></div>
         <hr />
-        <div
-          class="text-muted d-flex justify-content-between align-items-center pt-3"
-        >
+        <div class="d-flex justify-content-between align-items-center pt-3">
           <p class="mb-0" style="color: white">
             Copyright © 2024 Blue Life Labor Contractor Corp
           </p>
@@ -518,28 +408,19 @@
       // Extract the query parameter from the URL
       const params = new URLSearchParams(window.location.search);
       const service = params.get("service"); // Get the service from the URL
-    
-      // If a service is specified, update the "Contacts" section
+
+      // If a service is specified, update the section
       if (service) {
-        // Select the row element containing the "Contacts" text
-        const contactsSection = document.querySelector(".row.mb-5");
-    
-        // Update the content dynamically
-        contactsSection.innerHTML = `
-          <div class="row mb-5">
-            <div class="custom-header-text">
-              <p class="fw-bold mb-2" style="color: #fdbb2d">
-                GET MORE INFORMATION
-              </p>
-              <p class="fw-bold" style="color: #fff;">
-                <span>${service}</span>
-              </p>
-            </div>
-          </div>
-        `;
+        const headerContainer = document.querySelector(".custom-header-text");
+        if (headerContainer) {
+          headerContainer.innerHTML = `
+            <p class="fw-bold mb-2" style="color: #fdbb2d; margin-top: 30%">
+              ${service}
+            </p>
+          `;
+        }
       }
     </script>
-    
 
     <script>
       const form = document.getElementById("contact-form");
@@ -626,6 +507,69 @@
 
       document.addEventListener("scroll", updateLogo);
       document.addEventListener("DOMContentLoaded", updateLogo);
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const servicesLink = document.getElementById("services-link"); // Services link
+        const servicesMenu = document.getElementById("servicesMenu"); // Submenu for services
+        const backButton = document.getElementById("backButton"); // Back button
+        const navCol1 = document.getElementById("navcol-1"); // Main navigation
+
+        // Store the original height of the main navigation to prevent shrinking
+        const navCol1OriginalHeight = navCol1.offsetHeight;
+
+        // Show mobile submenu on "Services" click
+        servicesLink.addEventListener("click", (e) => {
+          if (window.innerWidth < 768) {
+            // Mobile behavior only
+            e.preventDefault(); // Prevent default link behavior
+            navCol1.style.height = `${navCol1OriginalHeight}px`; // Preserve height
+            navCol1.style.overflow = "hidden"; // Prevent scrolling inside main nav
+            navCol1.style.position = "relative"; // Maintain relative positioning
+            navCol1.style.zIndex = "1000"; // Keep main nav underneath
+            servicesMenu.classList.add("show"); // Show the submenu
+          }
+        });
+
+        // Hide submenu and then main nav on "Back" button click
+        backButton.addEventListener("click", () => {
+          closeSubMenu();
+        });
+
+        // Close submenu and main nav when a submenu link is clicked
+        const submenuLinks = servicesMenu.querySelectorAll("a.nav-link");
+        submenuLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            closeSubMenu();
+          });
+        });
+
+        // Listen for transitionend on servicesMenu to know when the submenu is fully closed
+        servicesMenu.addEventListener("transitionend", (e) => {
+          // Check if the submenu is now hidden (no .show class)
+          if (!servicesMenu.classList.contains("show")) {
+            // Now that the submenu is fully closed, close the main nav
+            navCol1.classList.remove("show");
+            resetNavStyles();
+          }
+        });
+
+        function closeSubMenu() {
+          // Start closing the submenu by removing .show, triggering CSS transition
+          servicesMenu.classList.remove("show");
+          // DO NOT reset nav styles or remove .show from navCol1 yet.
+          // Wait for transitionend event on servicesMenu.
+        }
+
+        // Reset main navigation styles after everything is closed
+        function resetNavStyles() {
+          navCol1.style.height = ""; // Reset height
+          navCol1.style.overflow = ""; // Reset overflow
+          navCol1.style.position = ""; // Reset position
+          navCol1.style.zIndex = ""; // Reset z-index
+        }
+      });
     </script>
   </body>
 </html>

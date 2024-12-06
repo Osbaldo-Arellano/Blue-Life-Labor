@@ -1,0 +1,668 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#mainNav {
+  position: fixed; /* Keeps the navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 10%; /* Adjust height as needed */
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 25, 56, 0.9),
+    rgba(14, 25, 56, 0)
+  ); /* Gradient with transparency */
+  z-index: 1000; /* Stacks above other elements */
+  border: none; /* Removes any border */
+  transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+}
+
+#mainNav:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 25, 56, 1),
+    rgba(14, 25, 56, 0.5)
+  ); /* More opaque on hover */
+  backdrop-filter: blur(10px); /* Adds a blur effect */
+}
+
+header {
+  position: relative; /* Keeps the header content manageable */
+  z-index: 0; /* Stacks below the navbar */
+  margin: 0; /* Ensures no unnecessary spacing */
+  padding-top: 0; /* Optional: Avoid unnecessary top padding */
+}
+
+.card-body {
+  background-color: white;
+  border-radius: 1%;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.contact-info h6,
+.contact-info p {
+  margin: 0; /* Remove default margins for consistency */
+}
+
+/* Set a consistent height for the carousel and use object-fit */
+#imageCarousel img {
+  height: 500px; /* Adjust the height as needed */
+  object-fit: cover; /* Ensures the image covers the container */
+  width: 100%; /* Ensures the image spans the width */
+}
+
+/* Optional: Add a background color for placeholder loading */
+#imageCarousel .carousel-item {
+  background-color: #f8f9fa; /* Light gray */
+}
+#modalImage {
+  max-height: 90vh; /* Prevents the image from exceeding the viewport height */
+  width: auto; /* Maintains aspect ratio */
+}
+/* Thumbnail container styling */
+#carouselThumbnails {
+  max-width: 800px;
+  overflow-x: auto; /* Enable horizontal scrolling if thumbnails exceed container width */
+}
+
+/* Thumbnail images */
+.img-thumbnail {
+  width: 100px; /* Set fixed width for thumbnails */
+  height: 60px; /* Adjust height for consistent sizing */
+  object-fit: cover; /* Ensure thumbnails are cropped properly */
+  transition: transform 0.2s ease; /* Add a hover effect */
+}
+
+/* Hover effect for thumbnails */
+.img-thumbnail:hover {
+  transform: scale(1.1); /* Slightly enlarge thumbnail on hover */
+}
+
+.bg-primary-gradient {
+  background: linear-gradient(0deg, #243f8b, black 100%);
+  color: white;
+}
+
+.bg-primary-gradient-2 {
+  background: linear-gradient(0deg, #050a16, #243f8b 150%);
+  color: white;
+}
+
+body {
+  background: linear-gradient(0deg, #080f22, #1f3981 95%);
+}
+
+hr {
+  border-color: rgba(255, 255, 255, 0.2); /* Optional: Adjust HR styling */
+}
+
+/* Styling for the dropdown */
+.services-hover {
+  position: relative; /* Parent for absolute subnav positioning */
+}
+
+.services-hover .subnav {
+  position: absolute;
+  top: 100%; /* Below the parent link */
+  left: 0;
+  background: rgba(14, 25, 56, 0.9); /* Dark background for the subnav */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 200px; /* Ensure enough space for links */
+  display: none; /* Hidden by default */
+  z-index: 1000;
+  border-radius: 5px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Subtle shadow */
+}
+
+.services-hover:hover .subnav {
+  display: block; /* Show on hover */
+}
+
+/* Styling for the sub-navigation links */
+.subnav-link {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.subnav-link:hover {
+  background-color: #fdbb2d; /* Highlight background */
+  color: #16295e; /* Contrast text */
+}
+
+/* Ensure proper spacing */
+.navbar-nav .nav-item {
+  margin: 0 5px;
+}
+
+.navbar-nav .nav-link {
+  color: white; /* Default link color */
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fdbb2d; /* Highlight on hover */
+}
+
+/* General Logo Styling */
+.logo {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1900; /* Higher than the navbar and menu */
+}
+
+/* General Logo Styling */
+.logo {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Large Logo */
+.large-logo {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  z-index: 2;
+  height: 150px; /* Adjust the size */
+  width: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Small Logo */
+.small-logo {
+  position: static;
+  height: 50px; /* Adjust to fit inside the navbar */
+  width: auto;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Visibility Classes */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#rotatingHeader {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-header-text {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 10px 20px;
+  border-radius: 8px;
+  z-index: 10;
+  font-family: "Oswald", sans-serif; /* Apply Oswald font */
+}
+
+.custom-header-text h1 {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 1000; /* Bold weight for Oswald */
+}
+
+.custom-header-text p {
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+  font-weight: 1000; /* Regular weight for Oswald */
+}
+
+.image-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.rotating-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.rotating-image.active {
+  opacity: 1;
+  z-index: 5;
+}
+
+.translucent-background {
+  background-color: rgba(255, 255, 255, 0.5); /* White with 80% opacity */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block; /* Keeps the background size minimal */
+}
+
+.translucent-background img {
+  max-height: 100px; /* Adjust image size if needed */
+  width: auto;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.translucent-background img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+body {
+  background: linear-gradient(0deg, black, #1f3981 190%);
+}
+
+p {
+  color: white; /* Ensure text stands out */
+}
+
+.navbar-nav .nav-link {
+  color: rgb(165, 163, 163); /* Default link color */
+  text-decoration: none; /* No underline by default */
+  transition: color 0.3s ease; /* Smooth transition */
+  font-family: "Oswald", sans-serif; /* Apply Oswald font */
+  font-weight: bold; /* Make the text more bold */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fdbb2d !important; /* Highlight color on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.navbar-nav .nav-link.active {
+  color: #fdbb2d !important; /* Active link color */
+}
+
+/* Submenu styling for desktop */
+.services-item {
+  position: relative; /* Ensure the submenu is positioned relative to the parent */
+}
+
+.services-submenu {
+  position: absolute;
+  top: 100%; /* Position below the Services link */
+  left: 0;
+  background: rgba(14, 25, 56, 0.9); /* Dark background */
+  border-radius: 4px;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.services-item:hover .services-submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.services-submenu .dropdown-item {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.services-submenu .dropdown-item:hover {
+  color: #fdbb2d; /* Highlight color on hover */
+}
+
+@media (max-width: 768px) {
+  .services-hover {
+    display: none !important; /* Ensure the hover dropdown doesn't appear on mobile */
+  }
+}
+
+/* Target mobile devices */
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-toggler {
+    margin-left: auto; /* Push the toggle button to the far right */
+    z-index: 1001; /* Ensure it is above the collapse menu */
+  }
+
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(
+      to bottom,
+      rgba(14, 25, 56, 0.9),
+      rgba(14, 25, 56, 0.5)
+    ); /* Gradient for mobile menu */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Prevent interaction */
+    transform: translateY(-100%); /* Slide out of view */
+    transition: opacity 0.1s ease, transform 0.5s ease, visibility 0.5s ease;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Adds a blur effect */
+  }
+
+  .navbar-collapse.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide into view */
+  }
+
+  .navbar-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 1rem 0;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #fdbb2d; /* Highlight color on hover */
+  }
+
+  .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="white" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+  }
+
+  #servicesMenu {
+    position: fixed;
+    top: 0;
+    left: 100%; /* Start off-screen */
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+      to bottom,
+      rgba(14, 25, 56, 0.9),
+      rgba(14, 25, 56, 0.5)
+    );
+    z-index: 1100;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(10px); /* Adds a blur effect */
+    transform: translateY(0);
+  }
+
+  #servicesMenu.show {
+    transform: translateX(-100%); /* Slide into view */
+  }
+
+  #servicesMenu:not(.show) {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .btn-back {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  .custom-header-text p {
+    content: "PROFESSIONALISM PASSION PRODUCTIVITY"; /* Removes dots */
+    font-size: 2.1rem; /* Optional: adjust font size for mobile */
+    color: white;
+    margin-top: 50%;
+  }
+}
+
+/* Hide the submenu on larger screens */
+@media (min-width: 769px) {
+  #servicesMenu {
+    display: none; /* Submenu is not visible */
+  }
+}
+
+.custom-header-text {
+  text-align: center;
+  margin-top: 4%;
+  color: white;
+  font-family: "Oswald", sans-serif; /* Apply Oswald font */
+  margin-top: 6%;
+}
+.custom-header-text h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 1000; /* Bold weight for Oswald */
+}
+
+.custom-header-text p {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  font-weight: 1000; /* Regular weight for Oswald */
+}
+
+.logo {
+  transition: opacity 0.3s ease-in-out;
+}
+.large-logo {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  z-index: 2;
+  height: 150px;
+  width: auto;
+  opacity: 1;
+  visibility: visible;
+}
+.small-logo {
+  position: static;
+  height: 50px;
+  width: auto;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+h3,
+h5,
+h6,
+p,
+ul li {
+  color: #fff;
+}
+.fw-bold {
+  font-weight: 600;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.card {
+  background: rgb(255, 255, 255, 0.4); /* Transparent white */
+  border: none;
+  border-radius: 0.5rem;
+}
+.card-body {
+  padding: 2rem;
+}
+.card h5,
+.card h6 {
+  color: #fdbb2d;
+}
+.footer {
+  background: linear-gradient(0deg, #243f8b, black 100%);
+  color: #fff;
+}
+.footer hr {
+  border-top: 1px solid #fff;
+}
+
+.compliance-logos img {
+  max-width: 150px;
+  margin: 15px;
+  transition: transform 0.3s ease;
+}
+
+.compliance-logos img:hover {
+  transform: scale(1.1);
+}
+
+.compliance-container {
+  background: rgb(255, 255, 255, 0.4); /* Transparent white */
+  border-radius: 10px; /* Rounded corners */
+  backdrop-filter: blur(10px); /* Background blur */
+  padding: 20px; /* Spacing inside container */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); /* Subtle shadow */
+}
+
+.compliance-logos img {
+  max-width: 150px;
+  margin: 15px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(0.9); /* Slightly dim */
+}
+
+.compliance-logos img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+  filter: brightness(1); /* Brighten on hover */
+}
+
+.navbar-nav .nav-link {
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fdbb2d !important; /* Highlight color on hover */
+}
+
+.navbar-nav .nav-link.active {
+  color: #fdbb2d !important; /* Active link color */
+}
+
+@media (max-width: 768px) {
+  .compliance-logos img {
+    max-width: 100px;
+    margin: 10px;
+  }
+
+  .large-logo {
+    left: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-header-text {
+    margin-top: 20%;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-toggler {
+    margin-left: auto; /* Push the toggle button to the far right */
+    z-index: 1001; /* Ensure it is above the collapse menu */
+  }
+
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(
+      to bottom,
+      rgba(14, 25, 56, 0.9),
+      rgba(14, 25, 56, 0.5)
+    ); /* Gradient for mobile menu */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Prevent interaction */
+    transform: translateY(-100%); /* Slide out of view */
+    transition: opacity 0.1s ease, transform 0.5s ease, visibility 0.5s ease;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Adds a blur effect */
+  }
+
+  .navbar-collapse.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide into view */
+  }
+
+  .navbar-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 1rem 0;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #fdbb2d; /* Highlight color on hover */
+  }
+
+  .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="white" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+  }
+
+  .infoo {
+    display: none;
+  }
+
+  #logo-container {
+    z-index: 2000;
+  }
+}
