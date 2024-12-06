@@ -24,10 +24,9 @@
 
     <link rel="stylesheet" href="assets/bootstrap/css/main.css" />
     <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-/>
-
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
   </head>
 
   <body>
@@ -50,17 +49,17 @@
 
         <!-- Navbar Toggler (for mobile) -->
         <button
-        class="navbar-toggler custom-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navcol-1"
-        aria-controls="navcol-1"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="line"></span>
-        <span class="line"></span>
-      </button>
+          class="navbar-toggler custom-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navcol-1"
+          aria-controls="navcol-1"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
 
         <!-- Main Navigation Links -->
         <div class="collapse navbar-collapse" id="navcol-1">
@@ -148,7 +147,7 @@
           <li class="nav-item">
             <a class="nav-link" href="services.html">All Services</a>
           </li>
-          <hr/>
+          <hr />
           <li class="nav-item">
             <hr />
           </li>
@@ -198,49 +197,104 @@
       </div>
     </nav>
     <header
-    style="
-      border-bottom: 2px solid #fdbb2d;
-      background-image: url(assets/img/projects/55.JPG);
-      background-size: cover;
-      background-position: center;
-      height: 49vh; /* Full viewport height */
-      position: relative;
-      overflow: hidden;
-    "
-  >
-    <!-- Transparent overlay -->
-    <div
       style="
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8); /* Black overlay with 50% transparency */
-        z-index: 1;
-      "
-    ></div>
-  
-    <!-- Text Content -->
-    <div
-      class="custom-header-text"
-      style="
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        z-index: 2;
-        color: white;
+        background-image: url(assets/img/projects/55.JPG);
+        background-size: cover;
+        background-position: center;
+        height: 49vh; /* Full viewport height */
+        position: relative;
+        overflow: hidden;
       "
     >
-      <p class="fw-bold mb-2" style="color: #fdbb2d; margin-top: 15px">
-        OUR SERVICES
-      </p>
-      <h1 class="header-text">WHAT WE CAN DO FOR YOU</h1>
-    </div>
-  </header>
-  
+      <!-- Transparent overlay -->
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(
+            0,
+            0,
+            0,
+            0.8
+          ); /* Black overlay with 50% transparency */
+          z-index: 1;
+        "
+      ></div>
+
+      <!-- Image Carousel -->
+      <div
+        class="carousel"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        "
+      >
+        <img
+          src="assets/img/projects/55.JPG"
+          alt="Image 1"
+          class="carousel-image"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            animation: fade 9s infinite;
+          "
+        />
+        <img
+          src="assets/img/projects/15.webp"
+          alt="Image 2"
+          class="carousel-image"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            animation: fade 9s infinite;
+            animation-delay: 3s;
+          "
+        />
+        <img
+          src="assets/img/projects/11.webp"
+          alt="Image 3"
+          class="carousel-image"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            animation: fade 9s infinite;
+            animation-delay: 6s;
+          "
+        />
+      </div>
+
+      <!-- Text Content -->
+      <div
+        class="custom-header-text"
+        style="
+          position: absolute;
+          top: 30%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          z-index: 2;
+          color: white;
+        "
+      >
+        <p class="fw-bold mb-2" style="color: #fdbb2d; margin-top: 15px">
+          OUR SERVICES
+        </p>
+        <h1 class="header-text">WHAT WE CAN DO FOR YOU</h1>
+      </div>
+    </header>
 
     <section class="py-5">
       <div class="container py-5">
@@ -438,24 +492,31 @@
       </div>
     </section>
 
-
     <hr style="border: none; border-top: 2px solid #fdbb2d; margin: 0" />
-    <footer class="bg-primary-gradient">
+    <footer class="bg-primary-gradient text-light">
       <div class="container py-4 py-lg-5">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center align-items-center">
           <!-- Left Column -->
           <div class="col-md-6">
-            <p style="margin: 0">
-              Blue Life Labor Contractor Corp<br />
-              <i class="bi bi-geo-alt-fill"></i> Woodburn, OR 97071<br /></i>
-              <i class="bi bi-telephone-fill"></i> (971) 983-7154<br />
-              <i class="bi bi-envelope-fill"></i> bluelifelabor@gmail.com
+            <p class="m-0">
+              <strong>Blue Life Labor Contractor Corp</strong><br />
+              <i class="bi bi-geo-alt-fill"></i> Woodburn, OR 97071<br />
+              <i class="bi bi-telephone-fill"></i>
+              <a href="tel:+19719837154" class="text-light text-decoration-none"
+                >(971) 983-7154</a
+              ><br />
+              <i class="bi bi-envelope-fill"></i>
+              <a
+                href="mailto:bluelifelabor@gmail.com"
+                class="text-light text-decoration-none"
+                >bluelifelabor@gmail.com</a
+              >
             </p>
           </div>
 
           <!-- Right Column -->
           <div class="col-md-6 text-md-end mt-3 mt-md-0">
-            <p style="margin: 0">
+            <p class="m-0">
               © 2024 Blue Life Labor Contractor Corp. All rights reserved.<br />
             </p>
           </div>
@@ -494,58 +555,57 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-      const servicesLink = document.getElementById("services-link"); // Services link
-      const servicesMenu = document.getElementById("servicesMenu"); // Submenu for services
-      const backButton = document.getElementById("backButton"); // Back button
-      const navCol1 = document.getElementById("navcol-1"); // Main navigation
+        const servicesLink = document.getElementById("services-link"); // Services link
+        const servicesMenu = document.getElementById("servicesMenu"); // Submenu for services
+        const backButton = document.getElementById("backButton"); // Back button
+        const navCol1 = document.getElementById("navcol-1"); // Main navigation
 
-      // Store the original height of the main navigation to prevent shrinking
-      const navCol1OriginalHeight = navCol1.offsetHeight;
+        // Store the original height of the main navigation to prevent shrinking
+        const navCol1OriginalHeight = navCol1.offsetHeight;
 
-      // Show mobile submenu on "Services" click
-      servicesLink.addEventListener("click", (e) => {
-        if (window.innerWidth < 768) {
-          // Mobile behavior only
-          e.preventDefault(); // Prevent default link behavior
-          navCol1.style.height = `${navCol1OriginalHeight}px`; // Preserve height
-          navCol1.style.overflow = "hidden"; // Prevent scrolling inside main nav
-          navCol1.style.position = "relative"; // Maintain relative positioning
-          navCol1.style.zIndex = "1000"; // Keep main nav underneath
-          servicesMenu.classList.add("show"); // Show the submenu
+        // Show mobile submenu on "Services" click
+        servicesLink.addEventListener("click", (e) => {
+          if (window.innerWidth < 768) {
+            // Mobile behavior only
+            e.preventDefault(); // Prevent default link behavior
+            navCol1.style.height = `${navCol1OriginalHeight}px`; // Preserve height
+            navCol1.style.overflow = "hidden"; // Prevent scrolling inside main nav
+            navCol1.style.position = "relative"; // Maintain relative positioning
+            navCol1.style.zIndex = "1000"; // Keep main nav underneath
+            servicesMenu.classList.add("show"); // Show the submenu
+          }
+        });
+
+        // Back button functionality
+        backButton.addEventListener("click", () => {
+          servicesMenu.classList.remove("show"); // Close the submenu
+          navCol1.classList.add("show"); // Re-show main navigation
+          resetNavStyles(); // Reset main nav styles
+        });
+
+        // Close submenu and main nav when a submenu link is clicked
+        const submenuLinks = servicesMenu.querySelectorAll("a.nav-link");
+        submenuLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            closeSubMenu(); // Close the submenu
+          });
+        });
+
+        // Reset main navigation styles after everything is closed
+        function resetNavStyles() {
+          navCol1.style.height = ""; // Reset height
+          navCol1.style.overflow = ""; // Reset overflow
+          navCol1.style.position = ""; // Reset position
+          navCol1.style.zIndex = ""; // Reset z-index
+        }
+
+        // Function to close the submenu
+        function closeSubMenu() {
+          servicesMenu.classList.remove("show"); // Hide submenu
+          navCol1.classList.remove("show"); // Hide main nav if open
+          resetNavStyles(); // Reset styles to default
         }
       });
-
-      // Back button functionality
-      backButton.addEventListener("click", () => {
-        servicesMenu.classList.remove("show"); // Close the submenu
-        navCol1.classList.add("show"); // Re-show main navigation
-          resetNavStyles(); // Reset main nav styles
-      });
-
-      // Close submenu and main nav when a submenu link is clicked
-      const submenuLinks = servicesMenu.querySelectorAll("a.nav-link");
-      submenuLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          closeSubMenu(); // Close the submenu
-        });
-      });
-
-      // Reset main navigation styles after everything is closed
-      function resetNavStyles() {
-        navCol1.style.height = ""; // Reset height
-        navCol1.style.overflow = ""; // Reset overflow
-        navCol1.style.position = ""; // Reset position
-        navCol1.style.zIndex = ""; // Reset z-index
-      }
-
-      // Function to close the submenu
-      function closeSubMenu() {
-        servicesMenu.classList.remove("show"); // Hide submenu
-        navCol1.classList.remove("show"); // Hide main nav if open
-        resetNavStyles(); // Reset styles to default
-      }
-    });
-
     </script>
   </body>
 </html>
