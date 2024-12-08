@@ -63,8 +63,8 @@ html {
   height: 10%; /* Adjust height as needed */
   background: linear-gradient(
     to bottom,
-    rgba(14, 25, 56, 0.9),
-    rgba(14, 25, 56, 0)
+    rgba(9, 16, 36, 0.9),
+    rgba(0, 3, 10, 0)
   ); /* Gradient with transparency */
   z-index: 1000; /* Stacks above other elements */
   border: none; /* Removes any border */
@@ -74,10 +74,16 @@ html {
 #mainNav:hover {
   background: linear-gradient(
     to bottom,
-    rgba(14, 25, 56, 1),
+    rgb(7, 13, 29),
     rgba(14, 25, 56, 0.5)
   ); /* More opaque on hover */
   backdrop-filter: blur(10px); /* Adds a blur effect */
+}
+
+@media (max-width: 768px) {
+  #mainNav {
+    background: linear-gradient(to bottom, rgb(7, 12, 27), rgba(0, 0, 0, 0));
+  }
 }
 /* Submenu container */
 .submenu {
@@ -298,12 +304,12 @@ hr {
 
 /* Large Logo */
 .large-logo {
-  position: absolute;
+  /* position: absolute; */
   top: 5px;
   left: 20px;
   z-index: 2;
-  height: 150px; /* Adjust the size */
-  width: auto;
+  height: 500px; /* Adjust the size */
+  /* width: auto; */
   opacity: 1;
   visibility: visible;
 }
@@ -311,7 +317,7 @@ hr {
 /* Small Logo */
 .small-logo {
   position: static;
-  height: 50px; /* Adjust to fit inside the navbar */
+  height: 150px; /* Adjust to fit inside the navbar */
   width: auto;
   z-index: 2;
   opacity: 0;
@@ -629,15 +635,15 @@ p {
   top: 5px;
   left: 20px;
   z-index: 2;
-  height: 100px;
+  height: 150px;
   width: auto;
   opacity: 1;
   visibility: visible;
 }
 .small-logo {
   position: static;
-  height: 50px;
-  width: auto;
+  height: 100px;
+  /* width: auto; */
   z-index: 2;
   opacity: 0;
   visibility: hidden;
@@ -734,6 +740,11 @@ ul li {
 
   .large-logo {
     left: 5px;
+    height: 105px;
+  }
+
+  .small-logo {
+    height: 60px;
   }
 }
 
@@ -924,5 +935,19 @@ ul li {
 @media (max-width: 768px) {
   .fade-in-stack {
     text-align: center;
+  }
+}
+
+/* Center the expanded logo in the mobile nav */
+.expanded-logo {
+  margin-bottom: 5%;
+  display: block;
+  max-width: 280px;
+}
+
+/* Hide the expanded logo on desktop */
+@media (min-width: 768px) {
+  .expanded-logo {
+    display: none;
   }
 }
