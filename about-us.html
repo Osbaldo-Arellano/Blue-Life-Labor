@@ -344,7 +344,7 @@
         <div class="container py-5">
           <div class="row">
             <!-- Profile Image for Mobile -->
-            <div class="col-md-4 text-center mobile-profile">
+            <div class="col-md-4 text-center mobile-profile fade-in">
               <div class="profile-img-container">
                 <img
                   src="assets/img/team/image copy.png"
@@ -505,6 +505,25 @@
           navCol1.style.position = ""; // Reset position
           navCol1.style.zIndex = ""; // Reset z-index
         });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeIns = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target); // Stop observing after fade-in
+              }
+            });
+          },
+          { threshold: 0.1 } // Trigger when 10% of the element is visible
+        );
+
+        fadeIns.forEach((fadeIn) => observer.observe(fadeIn));
       });
     </script>
   </body>

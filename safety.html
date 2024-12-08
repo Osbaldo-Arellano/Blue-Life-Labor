@@ -344,7 +344,7 @@
         <h1 class="header-text">OUR COMMITMENT</h1>
       </div>
     </header>
-    <section class="py-5">
+    <section class="py-5 fade-in">
       <div class="container py-5">
         <!-- Safety Card -->
         <div class="row mb-4">
@@ -383,7 +383,7 @@
         </div>
 
         <!-- Compliance Card -->
-        <div class="row mb-5">
+        <div class="row mb-5 fade-in">
           <div class="col-md-10 col-lg-8 mx-auto">
             <div class="card shadow-sm">
               <div class="card-body">
@@ -550,6 +550,25 @@
           navCol1.style.position = ""; // Reset position
           navCol1.style.zIndex = ""; // Reset z-index
         });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeIns = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target); // Stop observing after fade-in
+              }
+            });
+          },
+          { threshold: 0.1 } // Trigger when 10% of the element is visible
+        );
+
+        fadeIns.forEach((fadeIn) => observer.observe(fadeIn));
       });
     </script>
   </body>

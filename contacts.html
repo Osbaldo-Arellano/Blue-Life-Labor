@@ -293,9 +293,9 @@
         color: white;
       "
     >
-      <section class="py-5">
+      <section class="py-5 fade-in">
         <h1 class="custom-header-text-2" style="text-align: center">
-          Contact us to get more information on your desired service
+          Blue Life Labor Contractor Corp
         </h1>
         <div class="container py-5">
           <div class="row d-flex justify-content-center">
@@ -640,6 +640,25 @@
           navCol1.style.position = ""; // Reset position
           navCol1.style.zIndex = ""; // Reset z-index
         }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeIns = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target); // Stop observing after fade-in
+              }
+            });
+          },
+          { threshold: 0.1 } // Trigger when 10% of the element is visible
+        );
+
+        fadeIns.forEach((fadeIn) => observer.observe(fadeIn));
       });
     </script>
   </body>
