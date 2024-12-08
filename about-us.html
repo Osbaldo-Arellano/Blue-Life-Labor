@@ -150,7 +150,7 @@
             </li>
             <li class="nav-item dropdown services-item">
               <a class="nav-link" href="services.html" id="services-link"
-                >Services →</a
+                >Services</a
               >
               <!-- Submenu for Desktop (hover-based) -->
               <div class="services-submenu d-none d-md-block">
@@ -216,65 +216,6 @@
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
-
-    <!-- Mobile Submenu -->
-    <nav class="navbar sticky-top py-3 submenu d-md-none" id="servicesMenu">
-      <div class="container">
-        <button class="btn btn-back" id="backButton">← Back</button>
-        <ul class="navbar-nav ms-0">
-          <!-- Main Section Link -->
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">All Services</a>
-          </li>
-          <hr />
-          <li class="nav-item">
-            <hr />
-          </li>
-          <!-- Subsections -->
-          <li class="nav-item">
-            <a class="nav-link" href="services.html#harvest-service"
-              >Harvesting</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html#pruning-service">Pruning</a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="services.html#field-preparation-and-maintenance-service"
-              >Field Prep</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="services.html#plant-and-tree-nurseries-service"
-              >Plant Nurseries</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="services.html#irrigation-installation-and-maintenance-service"
-              >Irrigation</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="services.html#pest-and-disease-management-service"
-              >Pest Management</a
-            >
-          </li>
-          <li class="nav-item p-2" style="border-radius: 3px">
-            <a class="nav-link text-white" href="contacts.html"
-              >Request a Service</a
-            >
-          </li>
-        </ul>
       </div>
     </nav>
     <header
@@ -474,39 +415,6 @@
       document.addEventListener("DOMContentLoaded", updateLogo);
     </script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const servicesLink = document.getElementById("services-link"); // Services link
-        const servicesMenu = document.getElementById("servicesMenu"); // Submenu for services
-        const backButton = document.getElementById("backButton"); // Back button
-        const navCol1 = document.getElementById("navcol-1"); // Main navigation
-
-        // Store the original height of the main navigation to prevent shrinking
-        const navCol1OriginalHeight = navCol1.offsetHeight;
-
-        // Show mobile submenu on "Services" click
-        servicesLink.addEventListener("click", (e) => {
-          if (window.innerWidth < 768) {
-            // Mobile behavior only
-            e.preventDefault(); // Prevent default link behavior
-            navCol1.style.height = `${navCol1OriginalHeight}px`; // Preserve height
-            navCol1.style.overflow = "hidden"; // Prevent scrolling inside main nav
-            navCol1.style.position = "relative"; // Maintain relative positioning
-            navCol1.style.zIndex = "1000"; // Keep main nav underneath
-            servicesMenu.classList.add("show"); // Show the submenu
-          }
-        });
-
-        // Hide submenu and return to main nav on "Back" button click
-        backButton.addEventListener("click", () => {
-          servicesMenu.classList.remove("show"); // Hide the submenu
-          navCol1.style.height = ""; // Reset height
-          navCol1.style.overflow = ""; // Reset overflow
-          navCol1.style.position = ""; // Reset position
-          navCol1.style.zIndex = ""; // Reset z-index
-        });
-      });
-    </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const fadeIns = document.querySelectorAll(".fade-in");

@@ -73,7 +73,7 @@
             </li>
             <li class="nav-item dropdown services-item">
               <a class="nav-link" href="services.html" id="services-link"
-                >Services →</a
+                >Services</a
               >
               <!-- Submenu for Desktop (hover-based) -->
               <div class="services-submenu d-none d-md-block">
@@ -142,71 +142,11 @@
       </div>
     </nav>
 
-    <!-- Mobile Submenu -->
-    <nav class="navbar sticky-top py-3 submenu d-md-none" id="servicesMenu">
-      <div class="container">
-        <button class="btn btn-back" id="backButton">← Back</button>
-        <ul class="navbar-nav ms-0">
-          <!-- Main Section Link -->
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">All Services</a>
-          </li>
-          <hr />
-          <li class="nav-item">
-            <hr />
-          </li>
-          <!-- Subsections -->
-          <li class="nav-item">
-            <a class="nav-link" href="services.html#harvest-service"
-              >Harvesting</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html#pruning-service">Pruning</a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="services.html#field-preparation-and-maintenance-service"
-              >Field Prep</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="services.html#plant-and-tree-nurseries-service"
-              >Plant Nurseries</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="services.html#irrigation-installation-and-maintenance-service"
-              >Irrigation</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="services.html#pest-and-disease-management-service"
-              >Pest Management</a
-            >
-          </li>
-          <li class="nav-item p-2" style="border-radius: 3px">
-            <a class="nav-link text-white" href="contacts.html"
-              >Request a Service</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
-
     <header
       id="rotatingHeader"
       class="bg-primary-gradient"
       style="height: 100vh; position: relative; overflow: hidden"
     >
-      <!-- Text at the top -->
       <div
         class="custom-header-text"
         style="
@@ -218,8 +158,10 @@
           z-index: 2;
         "
       >
-        <p class="fade-in mb-2" style="color: #fdbb2d">
-          PROFESSIONALISM • PASSION • PRODUCTIVITY
+        <p class="fade-in-stack mb-2" style="color: #fdbb2d">
+          <span>PROFESSIONALISM</span>
+          <span>PASSION</span>
+          <span>PRODUCTIVITY</span>
         </p>
         <h1 class="header-text" style="color: white">
           YOUR TRUSTED PARTNER IN AGRICULTURAL LABOR SOLUTIONS
@@ -918,12 +860,30 @@
     <!-- Script to change text when on mobile -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        const textElement = document.querySelector(".custom-header-text p");
+
+        // Check if on mobile
         if (window.innerWidth <= 768) {
-          const textElement = document.querySelector(".custom-header-text p");
-          textElement.textContent = "PROFESSIONALISM PASSION PRODUCTIVITY";
+          textElement.innerHTML = `
+            <span>PROFESSIONALISM</span>
+            <span>PASSION</span>
+            <span>PRODUCTIVITY</span>
+          `;
+          textElement.style.fontSize = "2.5rem"; // Set font size to 2.5rem on mobile
+
           const textElement2 = document.querySelector(".header-text");
-          textElement2.textContent = " ";
+          textElement2.textContent = " "; // Clears the second header text
         }
+
+        // Add animation classes to spans
+        const spans = textElement.querySelectorAll("span");
+        spans.forEach((span, index) => {
+          span.style.display = "block"; // Ensures stacking for animation
+          span.style.opacity = "0";
+          span.style.transform = "translateY(20px)";
+          span.style.animation = `stack-fade-in 0.8s ease-out forwards`;
+          span.style.animationDelay = `${index * 0.3}s`;
+        });
       });
     </script>
 
@@ -970,62 +930,6 @@
           newsletterSubmitButton.disabled = false;
           newsletterSubmitButton.textContent = "Subscribe";
         }
-      });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Only enable submenu behavior for mobile screens
-        if (window.innerWidth <= 768) {
-          const servicesLink = document.getElementById("services-link");
-          const servicesMenu = document.getElementById("servicesMenu");
-          const backButton = document.getElementById("backButton");
-
-          // Show submenu when "Services" is clicked
-          servicesLink.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent default link behavior
-            servicesMenu.classList.add("show"); // Show the submenu
-          });
-
-          // Hide submenu when "Back" is clicked
-          backButton.addEventListener("click", () => {
-            servicesMenu.classList.remove("show"); // Hide the submenu
-          });
-        }
-      });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const servicesLink = document.getElementById("services-link"); // Services link
-        const servicesMenu = document.getElementById("servicesMenu"); // Submenu for services
-        const backButton = document.getElementById("backButton"); // Back button
-        const navCol1 = document.getElementById("navcol-1"); // Main navigation
-
-        // Store the original height of the main navigation to prevent shrinking
-        const navCol1OriginalHeight = navCol1.offsetHeight;
-
-        // Show mobile submenu on "Services" click
-        servicesLink.addEventListener("click", (e) => {
-          if (window.innerWidth < 768) {
-            // Mobile behavior only
-            e.preventDefault(); // Prevent default link behavior
-            navCol1.style.height = `${navCol1OriginalHeight}px`; // Preserve height
-            navCol1.style.overflow = "hidden"; // Prevent scrolling inside main nav
-            navCol1.style.position = "relative"; // Maintain relative positioning
-            navCol1.style.zIndex = "1000"; // Keep main nav underneath
-            servicesMenu.classList.add("show"); // Show the submenu
-          }
-        });
-
-        // Hide submenu and return to main nav on "Back" button click
-        backButton.addEventListener("click", () => {
-          servicesMenu.classList.remove("show"); // Hide the submenu
-          navCol1.style.height = ""; // Reset height
-          navCol1.style.overflow = ""; // Reset overflow
-          navCol1.style.position = ""; // Reset position
-          navCol1.style.zIndex = ""; // Reset z-index
-        });
       });
     </script>
 
